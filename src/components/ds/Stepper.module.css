@@ -1,0 +1,39 @@
+/* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
+@layer base, components;
+
+@layer components {
+  .stepper {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border: var(--border-width) solid var(--border-hairline);
+    border-radius: var(--radius-pill);
+    background: var(--white);
+  }
+
+  .button {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-pill);
+    color: var(--teal-600);
+    font: var(--fw-bold) 20px/1 var(--font-body);
+    cursor: pointer;
+  }
+
+  .button:disabled {
+    color: var(--text-subtle);
+    cursor: not-allowed;
+  }
+
+  .value {
+    min-width: 28px;
+    text-align: center;
+    font: var(--fw-bold) var(--size-body)/1 var(--font-body);
+    color: var(--text-body);
+  }
+}

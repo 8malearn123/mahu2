@@ -1,0 +1,16 @@
+/* The franchise page wrapper, with the hero size and the page's Arabic line heights. */
+.page {
+  --size-fr-hero: clamp(40px, 7vw, 84px);
+  background: var(--cream-100);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  overflow-x: clip;
+}
+
+.page:lang(ar) {
+  --size-fr-hero: clamp(34px, 5.4vw, 64px);
+  --lh-display-xl: 1.15;
+  --lh-display-l: 1.2;
+  --lh-display-m: 1.25;
+  --lh-title: 1.4;
+}

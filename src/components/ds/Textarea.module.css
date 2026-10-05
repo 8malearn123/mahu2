@@ -1,0 +1,36 @@
+/* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
+@layer base, components;
+
+@layer components {
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: var(--track-eyebrow);
+    color: var(--text-muted);
+  }
+
+  .textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    background: var(--white);
+    border: 2px solid var(--border-hairline);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-body);
+    resize: vertical;
+  }
+
+  .hint {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+}

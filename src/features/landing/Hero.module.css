@@ -1,0 +1,137 @@
+.hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1774 / 887;
+  min-height: min(100svh, 620px);
+  max-height: 100svh;
+  display: flex;
+  align-items: center;
+  background: var(--teal-600);
+  color: var(--cream-100);
+  overflow: hidden;
+}
+
+/* next/image `fill` already makes it absolute, inset 0, 100% × 100%. */
+.image {
+  object-fit: cover;
+  object-position: var(--hero-img-pos, 6% bottom);
+}
+
+/* Darkens the side the copy sits on (mirrored in Arabic through --hero-scrim-dir). */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to var(--hero-scrim-dir, right), rgba(18,48,51,.92) 0%, rgba(18,48,51,.86) 26%, rgba(18,48,51,.62) 48%, rgba(18,48,51,.24) 74%, rgba(18,48,51,0) 100%);
+}
+
+/* Fades the photo into the cream page at the bottom. */
+.fade {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 26%;
+  background: linear-gradient(to bottom, rgba(255,241,223,0) 0%, rgba(255,241,223,.55) 52%, var(--cream-100) 100%);
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  min-height: inherit;
+  padding: clamp(24px, 4vw, 64px) clamp(24px, 4vw, 48px) clamp(90px, 12vw, 150px);
+}
+
+.copy {
+  position: absolute;
+  bottom: clamp(104px, 20%, 200px);
+  inset-inline-start: max(24px, calc(50% - 550px));
+  inset-inline-end: auto;
+  width: min(46ch, calc(100% - 48px));
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--size-hero);
+  line-height: var(--lh-display-xl);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.body {
+  margin: 0;
+  max-width: 42ch;
+  font-size: clamp(15px, 2.6svh, 18px);
+  line-height: 1.55;
+  color: var(--cream-100);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+/* On phones the one-line row ran off-screen and clipped "Find a window" (the English row is ~450px). */
+@media (width < 480px) {
+  .actions {
+    flex-wrap: wrap;
+  }
+}
+
+.orderLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+/* A <button> in the design: border-box and centred text like one. */
+.findButton {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 0 22px;
+  background: transparent;
+  border: 2px solid var(--cream-100);
+  border-radius: var(--radius-pill);
+  color: var(--cream-100);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 120ms var(--ease-standard), color 120ms var(--ease-standard);
+}
+
+.findButton:hover {
+  background: var(--cream-100);
+  color: var(--teal-700);
+}
+
+.scrollCue {
+  position: absolute;
+  inset-inline: 0;
+  bottom: clamp(14px, 2vw, 26px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-900);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+}

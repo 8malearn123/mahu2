@@ -1,0 +1,113 @@
+/* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
+@layer base, components;
+
+@layer components {
+  .button {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--btn-gap);
+    min-height: var(--btn-h);
+    margin: 0;
+    padding: 0 var(--btn-px);
+    font: var(--fw-bold) var(--btn-fs)/1 var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    text-align: center;
+    text-decoration: none;
+    color: var(--btn-fg);
+    background: var(--btn-bg);
+    border: var(--border-width-strong) solid var(--btn-border);
+    border-radius: var(--radius-control);
+    cursor: pointer;
+    transition:
+      background var(--dur-fast) var(--ease-standard),
+      transform var(--dur-fast) var(--ease-standard);
+  }
+
+  .button:hover {
+    color: var(--btn-fg);
+    background: var(--btn-bg-hover);
+  }
+
+  .button:active {
+    transform: scale(var(--press-scale));
+  }
+
+  .button:disabled {
+    background: var(--ink-100);
+    border-color: transparent;
+    cursor: not-allowed;
+    opacity: .7;
+    transform: none;
+  }
+
+  .block {
+    display: flex;
+    width: 100%;
+  }
+
+  .primary {
+    --btn-bg: var(--teal-600);
+    --btn-bg-hover: var(--teal-700);
+    --btn-fg: var(--cream-100);
+    --btn-border: transparent;
+  }
+
+  .accent {
+    --btn-bg: var(--sandy-brown-500);
+    --btn-bg-hover: var(--sandy-brown-600);
+    --btn-fg: var(--ink-900);
+    --btn-border: transparent;
+  }
+
+  .hot {
+    --btn-bg: var(--fire-opal-500);
+    --btn-bg-hover: var(--fire-opal-600);
+    --btn-fg: var(--cream-100);
+    --btn-border: transparent;
+  }
+
+  .secondary {
+    --btn-bg: transparent;
+    --btn-bg-hover: var(--teal-050);
+    --btn-fg: var(--teal-600);
+    --btn-border: var(--teal-600);
+  }
+
+  .ghost {
+    --btn-bg: transparent;
+    --btn-bg-hover: var(--teal-050);
+    --btn-fg: var(--teal-600);
+    --btn-border: transparent;
+  }
+
+  .onBrand {
+    --btn-bg: var(--cream-100);
+    --btn-bg-hover: var(--white);
+    --btn-fg: var(--teal-600);
+    --btn-border: transparent;
+  }
+
+  .sm {
+    --btn-h: 36px;
+    --btn-px: var(--space-4);
+    --btn-fs: 13px;
+    --btn-gap: 6px;
+  }
+
+  .md {
+    --btn-h: 44px;
+    --btn-px: var(--space-5);
+    --btn-fs: 15px;
+    --btn-gap: 8px;
+  }
+
+  .lg {
+    --btn-h: 54px;
+    --btn-px: var(--space-6);
+    --btn-fs: 18px;
+    --btn-gap: 10px;
+  }
+}

@@ -1,0 +1,206 @@
+.section {
+  background: var(--cream-100);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 96px) clamp(24px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 4vw, 40px);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: var(--lh-display-l);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(28px, 4vw, 56px);
+  align-items: stretch;
+}
+
+/* The shift ticket: a white receipt whose bottom edge is scalloped by the mask. */
+.ticket {
+  min-width: 0;
+  max-width: 420px;
+  justify-self: center;
+  width: 100%;
+  background: var(--white);
+  box-shadow: var(--shadow-2);
+  -webkit-mask-image: radial-gradient(circle 7px at 7px 100%, transparent 98%, #000 100%), linear-gradient(#000, #000);
+  -webkit-mask-size: 14px 14px, 100% calc(100% - 13px);
+  -webkit-mask-repeat: repeat-x, no-repeat;
+  -webkit-mask-position: bottom left, top left;
+  mask-image: radial-gradient(circle 7px at 7px 100%, transparent 98%, #000 100%), linear-gradient(#000, #000);
+  mask-size: 14px 14px, 100% calc(100% - 13px);
+  mask-repeat: repeat-x, no-repeat;
+  mask-position: bottom left, top left;
+}
+
+.ticketBody {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 28px 26px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ticketHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+  padding-bottom: 2px;
+}
+
+.shiftHead {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.shiftSub {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--ink-500);
+}
+
+/* Dashed tear line, bleeding to the ticket's edges. */
+.rule {
+  margin-inline: -26px;
+  border-top: 2px dashed rgba(18,48,51,.24);
+}
+
+.rows {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 14px;
+  padding: 2px 0;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.time {
+  flex: 0 0 auto;
+  width: 80px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.25;
+  letter-spacing: .02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--teal-700);
+  text-align: start;
+}
+
+.what {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-900);
+  text-wrap: pretty;
+}
+
+.tally {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tallyRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.tallyLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--ink-700);
+}
+
+.tallyValue {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: .02em;
+  font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.foot {
+  align-self: center;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: .04em;
+  color: var(--ink-500);
+}
+
+/* Photo collage */
+.collage {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.teamPhoto {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 240px;
+  width: 100%;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--surface-inset);
+  box-shadow: var(--shadow-2);
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.square {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--surface-inset);
+}

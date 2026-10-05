@@ -1,0 +1,151 @@
+/* Pieces shared by the job application and the franchise enquiry forms. */
+
+/* The white form card. */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: clamp(20px, 3vw, 28px);
+  background: var(--white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-1);
+}
+
+/* "+966" box beside the mobile number input. */
+.phoneRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  width: 100%;
+}
+
+.countryCode {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 16px;
+  background: var(--surface-inset);
+  border: 2px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink-700);
+  white-space: nowrap;
+}
+
+.phoneInput {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Form-level error line (consent, and on the jobs form the role). */
+.formError {
+  font-size: 14px;
+  color: var(--fire-opal-500);
+}
+
+.fine {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Label wrapper inside the submit / reset buttons. */
+.buttonLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+/* Confirmation card that replaces the form once it is sent. */
+.success {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: clamp(24px, 4vw, 36px);
+  background: var(--teal-600);
+  color: var(--cream-100);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-2);
+  animation: mahuFade 300ms var(--ease-standard) both;
+}
+
+.successIcon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--sun-200);
+  color: var(--pine-800);
+}
+
+.successTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: var(--lh-display-m);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--cream-100);
+}
+
+/* The measure (max-width) differs per page and comes from the caller. */
+.successBody {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255,241,223,.88);
+}
+
+.receipt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  padding: 16px 18px;
+  background: rgba(255,241,223,.1);
+  border-radius: var(--radius-card);
+}
+
+.receiptItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.receiptLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: rgba(255,241,223,.72);
+}
+
+.reference {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: .06em;
+  color: var(--cream-100);
+}
+
+.receiptValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cream-100);
+}
+
+@keyframes mahuFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

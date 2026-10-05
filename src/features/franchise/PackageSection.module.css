@@ -1,0 +1,148 @@
+.section {
+  background: var(--cream-100);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 96px) clamp(24px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 4vw, 36px);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: var(--lh-display-l);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.bands {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+}
+
+/* One full-width band per item; its tone class sets the colours and the vertical padding. */
+.band {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 34px;
+  padding: var(--band-pad) clamp(22px, 3.4vw, 40px);
+  background: var(--band-bg);
+  color: var(--band-ink);
+}
+
+.cream {
+  --band-bg: var(--cream-200);
+  --band-ink: var(--ink-900);
+  --band-body-ink: var(--ink-700);
+  --band-pad: clamp(24px, 3.2vw, 34px);
+}
+
+.sun {
+  --band-bg: var(--sun-200);
+  --band-ink: var(--ink-900);
+  --band-body-ink: var(--ink-700);
+  --band-pad: clamp(26px, 3.6vw, 40px);
+}
+
+.beach {
+  --band-bg: var(--scene-beach);
+  --band-ink: var(--ink-900);
+  --band-body-ink: var(--ink-900);
+  --band-pad: clamp(22px, 3vw, 32px);
+}
+
+.sea {
+  --band-bg: var(--teal-400);
+  --band-ink: var(--pine-800);
+  --band-body-ink: var(--pine-800);
+  --band-pad: clamp(26px, 3.6vw, 38px);
+}
+
+.teal {
+  --band-bg: var(--teal-600);
+  --band-ink: var(--cream-100);
+  --band-body-ink: rgba(255,241,223,.9);
+  --band-pad: clamp(22px, 3vw, 32px);
+}
+
+.pine {
+  --band-bg: var(--pine-800);
+  --band-ink: var(--cream-100);
+  --band-body-ink: rgba(255,241,223,.9);
+  --band-pad: clamp(28px, 4vw, 44px);
+}
+
+/* Decorations: a sun rising over the sea band, waves on the pine band. */
+.bandSun {
+  position: absolute;
+  top: -56px;
+  inset-inline-end: 8%;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: var(--sun-200);
+}
+
+.bandWave {
+  position: absolute;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--cream-100);
+  opacity: .7;
+}
+
+.bandWave1 {
+  bottom: 16px;
+  inset-inline-end: 7%;
+  width: 84px;
+}
+
+.bandWave2 {
+  bottom: 30px;
+  inset-inline-end: 12%;
+  width: 52px;
+}
+
+.bandTitle {
+  position: relative;
+  margin: 0;
+  flex: 1 1 230px;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.12;
+  letter-spacing: var(--track-display);
+  color: var(--band-ink);
+}
+
+.bandBody {
+  position: relative;
+  margin: 0;
+  flex: 2 1 320px;
+  min-width: 0;
+  max-width: 56ch;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--band-body-ink);
+  text-wrap: pretty;
+}

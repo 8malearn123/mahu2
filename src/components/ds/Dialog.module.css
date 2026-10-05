@@ -1,0 +1,70 @@
+/* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
+@layer base, components;
+
+@layer components {
+  /* The <dialog> itself is a transparent full-screen layer; clicks on it (outside the panel) close. */
+  .dialog {
+    position: fixed;
+    inset: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: var(--space-5);
+    border: none;
+    background: transparent;
+    color: inherit;
+    overflow: auto;
+  }
+
+  .dialog[open] {
+    display: grid;
+  }
+
+  .dialog::backdrop {
+    /* Literal value: older engines don't pass custom properties into ::backdrop. */
+    background: rgba(18, 48, 51, .5);
+  }
+
+  .panel {
+    width: 100%;
+    margin: auto;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-3);
+    overflow: hidden;
+  }
+
+  .panel:focus {
+    outline: none;
+  }
+
+  .body {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .title {
+    margin: 0;
+    font: var(--fw-bold) var(--size-display-s)/var(--lh-display-s) var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: var(--track-display);
+    color: var(--text-body);
+  }
+
+  .content {
+    font: var(--fw-regular) var(--size-body)/var(--lh-body) var(--font-body);
+    color: var(--text-muted);
+  }
+
+  .footer {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: flex-end;
+    margin-top: var(--space-2);
+  }
+}

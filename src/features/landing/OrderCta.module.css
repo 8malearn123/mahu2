@@ -1,0 +1,139 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: var(--sun-200);
+  color: var(--ink-900);
+}
+
+/* The landscape behind the copy: sun, two ranges, sea, sand and two surfboards. */
+.scene {
+  position: absolute;
+  inset: 0;
+}
+
+.sun {
+  position: absolute;
+  bottom: 27%;
+  inset-inline-end: 13%;
+  width: clamp(116px, 14vw, 180px);
+  height: clamp(116px, 14vw, 180px);
+  border-radius: 50%;
+  background: var(--fire-opal-500);
+}
+
+.rangeFar {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 23%;
+  height: 15%;
+  background: var(--teal-600);
+  clip-path: polygon(0 100%, 14% 30%, 32% 100%, 50% 46%, 68% 6%, 86% 100%, 100% 54%, 100% 100%);
+}
+
+.rangeNear {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 23%;
+  height: 9%;
+  background: var(--pine-800);
+  clip-path: polygon(0 100%, 9% 40%, 22% 100%, 42% 24%, 60% 100%, 76% 48%, 90% 100%, 100% 64%, 100% 100%);
+}
+
+.sea {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 9%;
+  height: 14%;
+  background: var(--teal-400);
+}
+
+.waveHigh {
+  position: absolute;
+  top: 26%;
+}
+
+.waveLow {
+  position: absolute;
+  top: 62%;
+}
+
+.sand {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 9%;
+  background: var(--sand-300);
+}
+
+.boardCream {
+  position: absolute;
+  bottom: 4%;
+  inset-inline-start: 7%;
+  width: 24px;
+  height: 124px;
+  border-radius: 999px;
+  background: var(--cream-100);
+  transform: rotate(-16deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stringerCoral {
+  width: 4px;
+  height: 88px;
+  border-radius: 999px;
+  background: var(--fire-opal-500);
+}
+
+.boardTeal {
+  position: absolute;
+  bottom: 4%;
+  inset-inline-start: 13%;
+  width: 21px;
+  height: 102px;
+  border-radius: 999px;
+  background: var(--teal-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(13deg);
+}
+
+.stringerSun {
+  width: 3px;
+  height: 72px;
+  border-radius: 999px;
+  background: var(--sun-200);
+}
+
+.inner {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(56px, 8vw, 104px) clamp(24px, 4vw, 48px) clamp(240px, 32vw, 400px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  max-width: 15ch;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: var(--lh-display-l);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.sub {
+  margin: 0;
+  max-width: 28ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-700);
+}

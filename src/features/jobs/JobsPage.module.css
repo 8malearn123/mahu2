@@ -1,0 +1,18 @@
+/* The jobs page wrapper, with the page's type sizes and its Arabic line heights. */
+.page {
+  --size-jobs-hero: clamp(40px, 7vw, 84px);
+  --size-role: clamp(24px, 2.6vw, 32px);
+  background: var(--cream-100);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  overflow-x: clip;
+}
+
+.page:lang(ar) {
+  --size-jobs-hero: clamp(34px, 5.4vw, 64px);
+  --size-role: clamp(21px, 2.2vw, 27px);
+  --lh-display-xl: 1.15;
+  --lh-display-l: 1.2;
+  --lh-display-m: 1.25;
+  --lh-title: 1.4;
+}

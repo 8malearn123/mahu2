@@ -1,0 +1,353 @@
+.section {
+  background: var(--cream-100);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 96px) clamp(24px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 4vw, 36px);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: var(--lh-display-l);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 202px), 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-2);
+  transform: translateY(-1px);
+}
+
+.text {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 22px 24px;
+}
+
+.figure {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(38px, 4vw, 52px);
+  line-height: .9;
+  letter-spacing: var(--track-display);
+  white-space: nowrap;
+  color: var(--pine-800);
+}
+
+.unit {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--teal-600);
+}
+
+.label {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-700);
+  text-wrap: pretty;
+}
+
+/*
+ * The scenes above each figure, drawn with positioned blocks. They use physical left/right like
+ * the design, so they look the same in both directions.
+ */
+.scene {
+  position: relative;
+  height: 158px;
+  overflow: hidden;
+  background: var(--scene-sky);
+}
+
+/* Sun: low sun over the sea, with glints. */
+.sunDisc {
+  position: absolute;
+  left: 50%;
+  bottom: 52px;
+  width: 104px;
+  height: 104px;
+  margin-left: -52px;
+  border-radius: 50%;
+  background: var(--sun-200);
+}
+
+.sunSea {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 62px;
+  background: var(--teal-400);
+}
+
+.sunGlint {
+  position: absolute;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--cream-100);
+}
+
+.sunGlint1 {
+  bottom: 38px;
+  left: 22px;
+  width: 58px;
+}
+
+.sunGlint2 {
+  bottom: 38px;
+  right: 22px;
+  width: 58px;
+}
+
+.sunGlint3 {
+  bottom: 22px;
+  left: 50%;
+  width: 74px;
+  margin-left: -37px;
+}
+
+.sunGlint4 {
+  bottom: 8px;
+  left: 32px;
+  width: 42px;
+}
+
+.sunGlint5 {
+  bottom: 8px;
+  right: 32px;
+  width: 42px;
+}
+
+/* Wave: hills, a wave crest and a dashed road. */
+.waveSun {
+  position: absolute;
+  left: 50%;
+  top: 16px;
+  width: 52px;
+  height: 52px;
+  margin-left: -26px;
+  border-radius: 50%;
+  background: var(--sun-200);
+}
+
+.waveHillLeft {
+  position: absolute;
+  left: -30px;
+  bottom: 52px;
+  width: 130px;
+  height: 74px;
+  border-radius: 50% 50% 0 0;
+  background: var(--teal-400);
+}
+
+.waveHillRight {
+  position: absolute;
+  right: -30px;
+  bottom: 52px;
+  width: 130px;
+  height: 74px;
+  border-radius: 50% 50% 0 0;
+  background: var(--teal-400);
+}
+
+.waveCrest {
+  position: absolute;
+  left: 50%;
+  bottom: 52px;
+  width: 120px;
+  height: 58px;
+  margin-left: -60px;
+  border-radius: 50% 50% 0 0;
+  background: var(--teal-600);
+}
+
+.waveGround {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 52px;
+  background: var(--pine-800);
+}
+
+.waveDash {
+  position: absolute;
+  bottom: 24px;
+  width: 34px;
+  height: 4px;
+  background: var(--cream-100);
+}
+
+.waveDash1 {
+  left: 10px;
+}
+
+.waveDash2 {
+  left: 62px;
+}
+
+.waveDash3 {
+  left: 114px;
+}
+
+.waveDash4 {
+  left: 166px;
+}
+
+.waveDash5 {
+  left: 218px;
+}
+
+/* Board: three surfboards planted in the sand. */
+.boardSea {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 110px;
+  background: var(--teal-400);
+}
+
+.boardSand {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 48px;
+  background: var(--scene-beach);
+}
+
+.boardLeft {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  margin-left: -70px;
+  width: 26px;
+  height: 96px;
+  border-radius: 999px;
+  background: var(--cream-100);
+  transform: rotate(-10deg);
+  transform-origin: bottom center;
+}
+
+.boardMiddle {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  margin-left: -13px;
+  width: 26px;
+  height: 104px;
+  border-radius: 999px;
+  background: var(--fire-opal-500);
+}
+
+.boardRight {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  margin-left: 44px;
+  width: 26px;
+  height: 96px;
+  border-radius: 999px;
+  background: var(--cream-100);
+  transform: rotate(10deg);
+  transform-origin: bottom center;
+}
+
+.boardStripe {
+  position: absolute;
+  bottom: 58px;
+  left: 50%;
+  margin-left: -2px;
+  width: 4px;
+  height: 56px;
+  border-radius: 2px;
+  background: var(--cream-100);
+}
+
+/* Cup: sunset over two headlands. */
+.cupSand {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 100px;
+  background: var(--scene-beach);
+}
+
+.cupSun {
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  width: 66px;
+  height: 66px;
+  margin-left: -33px;
+  border-radius: 50%;
+  background: var(--fire-opal-500);
+}
+
+.cupHillLeft {
+  position: absolute;
+  left: -40px;
+  top: 54px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: var(--teal-600);
+}
+
+.cupHillRight {
+  position: absolute;
+  right: -44px;
+  top: 66px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: var(--pine-800);
+}
+
+.cupSea {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 44px;
+  background: var(--teal-400);
+}

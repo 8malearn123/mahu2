@@ -1,0 +1,27 @@
+/* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
+@layer base, components;
+
+/* Shared by Input, Select and Textarea. */
+@layer components {
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .label {
+    font: var(--fw-bold) var(--size-caption)/1 var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--text-muted);
+  }
+
+  .message {
+    font: var(--fw-regular) var(--size-caption)/1.3 var(--font-body);
+    color: var(--text-muted);
+  }
+
+  .messageError {
+    color: var(--state-error);
+  }
+}

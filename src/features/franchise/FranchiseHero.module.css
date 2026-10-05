@@ -1,0 +1,99 @@
+.hero {
+  background: var(--teal-600);
+  color: var(--cream-100);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 96px) clamp(24px, 4vw, 48px) clamp(48px, 7vw, 80px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+}
+
+.copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--size-fr-hero);
+  line-height: var(--lh-display-xl);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--cream-100);
+}
+
+.body {
+  margin: 0;
+  max-width: 42ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255,241,223,.86);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.registerLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.media {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--cream-100);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.caption {
+  padding: 16px 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.captionLine {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--pine-800);
+}
+
+.captionSub {
+  font-size: 13px;
+  color: var(--ink-700);
+}

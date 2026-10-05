@@ -1,0 +1,27 @@
+:root{
+/* Families are loaded with next/font (src/app/fonts.ts), which exposes them as --font-big-shoulders etc. */
+--font-display:var(--font-big-shoulders),"Oswald","Arial Narrow",sans-serif; /* stand-in for Luam Bold */
+--font-body:var(--font-archivo-narrow),"Arial Narrow",sans-serif;            /* stand-in for Luam Regular/Light */
+--font-mono:ui-monospace,SFMono-Regular,Menlo,monospace; /* receipts, order numbers — addition, system stack */
+
+--fw-light:300; /* @kind other */
+--fw-regular:400; /* @kind other */
+--fw-medium:500; /* @kind other */
+--fw-bold:700; /* @kind other */
+
+/* Display — always uppercase, tight, tracked out slightly */
+--size-display-xl:96px; --lh-display-xl:.86; /* @kind other */
+--size-display-l:64px;  --lh-display-l:.9; /* @kind other */
+--size-display-m:44px;  --lh-display-m:.94; /* @kind other */
+--size-display-s:32px;  --lh-display-s:1; /* @kind other */
+
+--size-title:24px;   --lh-title:1.15; /* @kind other */
+--size-body-l:18px;  --lh-body-l:1.5; /* @kind other */
+--size-body:16px;    --lh-body:1.55; /* @kind other */
+--size-body-s:14px;  --lh-body-s:1.5; /* @kind other */
+--size-caption:12px; --lh-caption:1.35; /* @kind other */
+
+--track-display:.02em; /* @kind other */
+--track-eyebrow:.22em; /* @kind other */
+--track-body:0; /* @kind other */
+}

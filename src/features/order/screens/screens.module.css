@@ -1,0 +1,569 @@
+/* The checkout screens (menu specifics live in MenuScreen.module.css). */
+
+/* Screen stacks */
+
+.stack26 {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.stack24 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stack22 {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.stack18 {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.stack16 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stack12 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Screen intro: eyebrow, title, lead */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--teal-600);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: var(--lh-display-m);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.lead {
+  margin: 0;
+  max-width: 44ch;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.strong {
+  color: var(--ink-900);
+  font-weight: 700;
+}
+
+/* Shared text */
+
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--text-muted);
+}
+
+.value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-body);
+}
+
+.muted {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.subtle {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-subtle);
+}
+
+.priceLarge {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1;
+  color: var(--text-price);
+}
+
+.currency {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .14em;
+  margin-inline-start: 5px;
+}
+
+/* Cards */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 20px 22px;
+  background: var(--white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+}
+
+/* Pickup window panel (pay screen: inside the summary card; confirm screen: its own card) */
+
+.windowInCard,
+.windowCard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  background: var(--teal-050);
+}
+
+.windowInCard {
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+}
+
+.windowCard {
+  padding: 16px 18px;
+  border-radius: var(--radius-card);
+}
+
+.windowText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.windowLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--teal-700);
+}
+
+.windowName {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ink-900);
+}
+
+.windowStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dotOpen {
+  background: var(--teal-400);
+}
+
+.dotClosed {
+  background: var(--fire-opal-500);
+}
+
+/* Outline pill buttons ("Change", "Edit") */
+
+.pill {
+  min-height: 38px;
+  padding: 0 16px;
+  background: transparent;
+  border: 2px solid var(--teal-600);
+  color: var(--teal-700);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  cursor: pointer;
+}
+
+.pillFixed {
+  flex: 0 0 auto;
+}
+
+.pillTall {
+  min-height: 40px;
+  padding: 0 18px;
+}
+
+/* Rows */
+
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.rowTight {
+  padding: 6px 0;
+}
+
+.rowLoose {
+  padding: 7px 0;
+}
+
+.summaryLabel {
+  padding-bottom: 8px;
+}
+
+.lineText {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+.subtotalRow {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-inset);
+}
+
+.rewardRow {
+  padding: 10px 12px;
+  background: var(--teal-050);
+  border-radius: var(--radius-sm);
+}
+
+.rewardRowPay {
+  margin-top: 8px;
+}
+
+.rewardRowConfirm {
+  margin-top: 6px;
+}
+
+.rewardText {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--teal-700);
+}
+
+.rewardCheck {
+  padding-top: 4px;
+}
+
+.totalRow {
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-hairline);
+}
+
+/* Forms */
+
+.pairRow {
+  display: flex;
+  gap: 16px;
+}
+
+/* Holds the consent checkbox and, when it's needed, its error (spaced like a design-system field). */
+.consentField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.consentError {
+  font: var(--fw-regular) var(--size-caption)/1.3 var(--font-body);
+  color: var(--state-error);
+}
+
+.payNote {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-subtle);
+}
+
+/* Phone */
+
+.phoneRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.prefix {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 16px;
+  background: var(--surface-inset);
+  border: 2px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+}
+
+.pointsTeaser {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  padding: 16px 18px;
+  background: var(--surface-inset);
+  border-radius: var(--radius-card);
+}
+
+.teaserPoints {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.teaserNumber {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: var(--track-display);
+  color: var(--teal-700);
+}
+
+.teaserUnit {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--text-muted);
+}
+
+.teaserTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+/* Code entry */
+
+.otpRow {
+  display: flex;
+  gap: 12px;
+}
+
+.otpCell {
+  width: 64px;
+  height: 72px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--ink-900);
+  background: var(--white);
+  border: 2px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+.otpWrong {
+  font-size: 14px;
+  color: var(--state-error);
+}
+
+.resendRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.resendIn {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.otpDemo {
+  font-size: 13px;
+  color: var(--text-subtle);
+}
+
+/* Confirm */
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px;
+  background: var(--white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+}
+
+.panelDetails {
+  gap: 14px;
+}
+
+.panelPay {
+  gap: 16px;
+}
+
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.payHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+}
+
+.detailRows {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.verifiedRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-inset);
+}
+
+.headText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.verifiedLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--teal-700);
+}
+
+.headValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink-900);
+}
+
+.textButton {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--teal-700);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Done */
+
+.codeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px;
+  background: var(--teal-600);
+  color: var(--cream-100);
+  border-radius: var(--radius-card);
+}
+
+.codeLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: rgba(255, 241, 223, .72);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1;
+}
+
+.doneTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 4.5vw, 40px);
+  line-height: var(--lh-display-m);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+}
+
+.doneBody {
+  margin: 0;
+  max-width: 42ch;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 241, 223, .86);
+}
+
+.doneActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 20px;
+  background: var(--teal-600);
+  color: var(--cream-100);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}

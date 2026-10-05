@@ -1,0 +1,441 @@
+/* Menu screen: your usual, points card, most-ordered card, tabs, menu rows, basket. */
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.menuTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(34px, 6vw, 52px);
+  line-height: var(--lh-display-m);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.note {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Your usual */
+
+.usual {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 18px;
+  background: var(--teal-600);
+  color: var(--cream-100);
+  border-radius: var(--radius-card);
+}
+
+.usualTop {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.usualThumb {
+  flex: 0 0 92px;
+  width: 92px;
+  height: 92px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--cream-100);
+}
+
+.usualText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.usualLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: rgba(255, 241, 223, .72);
+}
+
+.usualName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+}
+
+.usualOptions {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 241, 223, .86);
+}
+
+.usualHint {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--sun-200);
+}
+
+/* Points card */
+
+.points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 18px;
+  padding: 20px 22px;
+  background: var(--white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-1);
+}
+
+.pointsBody {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pointsHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px 20px;
+}
+
+.pointsHeadText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.meter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 18px;
+}
+
+.track {
+  flex: 1 1 220px;
+  min-width: 180px;
+  height: 12px;
+  background: var(--surface-inset);
+  border: 2px solid var(--teal-600);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: var(--teal-600);
+  transition: width 200ms var(--ease-standard);
+}
+
+.pointsNow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: var(--track-display);
+  color: var(--ink-900);
+}
+
+.toGo {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--text-muted);
+}
+
+.thisOrder {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: var(--teal-050);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--teal-700);
+}
+
+.nudge {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--teal-700);
+}
+
+/* Beach scene beside the points (flat bands and boards, as on the packaging) */
+
+.scene {
+  position: relative;
+  min-height: 180px;
+  min-width: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--sun-200);
+}
+
+.sun {
+  position: absolute;
+  top: 20px;
+  inset-inline-end: 26px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--fire-opal-500);
+}
+
+.hills {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 34%;
+  height: 44%;
+  background: var(--pine-800);
+  clip-path: polygon(0 100%, 18% 34%, 38% 100%, 56% 52%, 80% 14%, 100% 100%);
+}
+
+.sea {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 34%;
+  background: var(--teal-400);
+}
+
+.sand {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 11%;
+  background: var(--sand-300);
+}
+
+.board {
+  position: absolute;
+  bottom: 9%;
+  inset-inline-start: 22px;
+  width: 15px;
+  height: 68px;
+  border-radius: 999px;
+  background: var(--cream-100);
+  transform: rotate(-14deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boardStripe {
+  width: 3px;
+  height: 48px;
+  border-radius: 999px;
+  background: var(--fire-opal-500);
+}
+
+.boardSmall {
+  position: absolute;
+  bottom: 9%;
+  inset-inline-start: 48px;
+  width: 13px;
+  height: 56px;
+  border-radius: 999px;
+  background: var(--teal-600);
+  transform: rotate(10deg);
+}
+
+/* Most ordered */
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  background: var(--white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+}
+
+.heroMedia {
+  position: relative;
+  flex: 1 1 260px;
+  min-width: 0;
+  min-height: 280px;
+  background: var(--surface-inset);
+}
+
+.heroBadge {
+  position: absolute;
+  top: 14px;
+  inset-inline-start: 14px;
+  pointer-events: none;
+}
+
+.heroBody {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.heroName {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: var(--lh-title);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.heroNote {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.heroBuy {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-hairline);
+}
+
+/* Menu rows */
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+  background: var(--white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-1);
+}
+
+.itemThumb {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex: 0 0 auto;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface-inset);
+  cursor: pointer;
+}
+
+.itemText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.itemNameRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.itemName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.itemBuy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.itemPrice {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--text-price);
+}
+
+.itemCurrency {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .14em;
+  margin-inline-start: 4px;
+}
+
+/* Basket */
+
+.basket {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 22px;
+  background: var(--white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+}
+
+.basketLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--text-muted);
+  padding-bottom: 6px;
+}

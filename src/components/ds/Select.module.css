@@ -1,0 +1,29 @@
+/* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
+@layer base, components;
+
+@layer components {
+  .select {
+    min-height: 48px;
+    padding: 0 var(--space-4);
+    background: var(--white);
+    color: var(--text-body);
+    font: var(--fw-regular) var(--size-body)/1.4 var(--font-body);
+    border: var(--border-width-strong) solid var(--border-hairline);
+    border-radius: var(--radius-sm);
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .select:focus {
+    border-color: var(--teal-600);
+  }
+
+  .invalid,
+  .invalid:focus {
+    border-color: var(--state-error);
+  }
+
+  .select:disabled {
+    cursor: not-allowed;
+  }
+}

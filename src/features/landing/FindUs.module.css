@@ -1,0 +1,233 @@
+.section {
+  background: var(--cream-100);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 96px) clamp(24px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 44px);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.headText {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: var(--lh-display-l);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.count {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-500);
+}
+
+.locate {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 22px;
+  background: transparent;
+  border: 2px solid var(--teal-600);
+  color: var(--teal-700);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  cursor: pointer;
+}
+
+.locate:hover {
+  background: var(--teal-050);
+}
+
+/* Branch cards */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 14px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+
+.cardNearest {
+  background: var(--teal-050);
+  border-color: var(--teal-600);
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--surface-inset);
+}
+
+.nearestTag {
+  position: absolute;
+  top: 12px;
+  inset-inline-start: 12px;
+  padding: 5px 12px;
+  background: var(--sun-200);
+  color: var(--ink-900);
+  border-radius: var(--radius-pill);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  white-space: nowrap;
+}
+
+.cardBody {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 20px 22px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 22px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--teal-400);
+}
+
+.dotClosed {
+  background: var(--fire-opal-500);
+}
+
+.statusText {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--teal-700);
+}
+
+.statusTextClosed {
+  color: var(--fire-opal-500);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3vw, 34px);
+  line-height: var(--lh-display-m);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.area {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-500);
+}
+
+.km {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--teal-700);
+}
+
+.actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* A <button> in the design: border-box and centred text like one. */
+.orderHere {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 20px;
+  background: var(--teal-600);
+  color: var(--cream-100);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.orderHere:hover {
+  background: var(--teal-700);
+}
+
+.directions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 0 18px;
+  background: transparent;
+  border: 2px solid rgba(18,48,51,.2);
+  color: var(--ink-900);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.directions:hover {
+  background: var(--teal-050);
+  border-color: var(--teal-600);
+}

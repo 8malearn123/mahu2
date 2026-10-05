@@ -1,0 +1,16 @@
+/* The landing page wrapper. Page-specific type sizes and the hero's mirroring for Arabic. */
+.page {
+  --size-hero: clamp(38px, min(9vw, 12.5svh), 96px);
+  --size-step-title: clamp(26px, 2.9vw, 36px);
+  background: var(--cream-100);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  overflow-x: clip;
+}
+
+.page:lang(ar) {
+  --hero-scrim-dir: left;
+  --hero-img-pos: 100% bottom;
+  --size-hero: clamp(32px, min(6vw, 9.5svh), 68px);
+  --size-step-title: clamp(24px, 2.5vw, 31px);
+}

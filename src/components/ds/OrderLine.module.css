@@ -1,0 +1,56 @@
+/* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
+@layer base, components;
+
+@layer components {
+  .line {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-bottom: var(--border-width) solid var(--border-hairline);
+  }
+
+  .text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .name {
+    font: var(--fw-bold) var(--size-body)/1.3 var(--font-body);
+    color: var(--text-body);
+  }
+
+  .options {
+    font: var(--fw-regular) var(--size-body-s)/1.35 var(--font-body);
+    color: var(--text-muted);
+  }
+
+  .remove {
+    align-self: flex-start;
+    margin-top: 2px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: var(--fire-opal-600);
+    font: var(--fw-bold) var(--size-caption)/1 var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    cursor: pointer;
+  }
+
+  .price {
+    min-width: 72px;
+    text-align: end;
+    font: var(--fw-bold) var(--size-body-l)/1 var(--font-body);
+    color: var(--text-body);
+  }
+
+  .currency {
+    font-size: var(--size-caption);
+    letter-spacing: .12em;
+    color: var(--text-muted);
+  }
+}

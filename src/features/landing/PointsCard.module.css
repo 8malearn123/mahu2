@@ -1,0 +1,123 @@
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--cream-100);
+  border: 2px solid var(--pine-800);
+  box-shadow: var(--shadow-2);
+  transform: rotate(-1.5deg);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--pine-800);
+}
+
+.label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--sun-200);
+}
+
+.body {
+  padding: 26px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.balanceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.balanceLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--ink-500);
+}
+
+.rule {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--teal-600);
+}
+
+.pointsRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.points {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 72px;
+  line-height: .9;
+  letter-spacing: var(--track-display);
+  color: var(--pine-800);
+}
+
+.unit {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--ink-700);
+}
+
+.bar {
+  height: 14px;
+  background: var(--cream-200);
+  border: 2px solid var(--pine-800);
+  overflow: hidden;
+}
+
+/* Width is set inline: 0% until the card scrolls into view, then the balance. */
+.barFill {
+  height: 100%;
+  background: var(--teal-600);
+  transition: width 600ms var(--ease-standard);
+}
+
+.toGo {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-700);
+}
+
+.divider {
+  height: 0;
+  border-top: 2px dashed var(--pine-800);
+  opacity: .45;
+}
+
+.footer {
+  padding: 16px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footerTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--pine-800);
+}

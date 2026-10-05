@@ -1,0 +1,210 @@
+.section {
+  background: var(--cream-200);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 96px) clamp(24px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.headText {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: var(--lh-display-l);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.headAction {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 34ch;
+}
+
+/* Featured drinks */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
+}
+
+.card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--surface-inset);
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  inset-inline-start: 14px;
+  pointer-events: none;
+}
+
+.cardBody {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: var(--lh-title);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.note {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.proof {
+  margin-top: auto;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--teal-600);
+}
+
+.buy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1;
+  color: var(--text-price);
+}
+
+.currency {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .14em;
+  margin-inline-start: 5px;
+}
+
+/* This week's limited drop */
+
+.drop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  background: var(--fire-opal-500);
+  color: var(--cream-100);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.dropPhoto {
+  flex: 1 1 150px;
+  min-height: 150px;
+  background: rgba(255,241,223,.22);
+}
+
+.dropContent {
+  flex: 6 1 300px;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 28px;
+  padding: 22px clamp(20px, 3vw, 28px);
+}
+
+.dropText {
+  flex: 1 1 240px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dropTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(26px, 3vw, 32px);
+  line-height: 1.1;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+}
+
+.dropBody {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255,241,223,.9);
+}
+
+/* A <button> in the design: border-box and centred text like one. */
+.dropButton {
+  box-sizing: border-box;
+  flex: 1 1 200px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  background: var(--cream-100);
+  color: var(--teal-700);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  text-align: center;
+  cursor: pointer;
+}

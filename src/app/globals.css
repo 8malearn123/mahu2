@@ -1,0 +1,88 @@
+/*
+ * Cascade layers: element defaults live in `base`, the design-system primitives in `components`.
+ * Page and section CSS Modules stay unlayered, so their overrides always win.
+ */
+@layer base, components;
+
+/* Mahu Cafe design-system tokens, copied from the Claude Design export. */
+@import "../styles/tokens/colors.css";
+@import "../styles/tokens/typography.css";
+@import "../styles/tokens/spacing.css";
+@import "../styles/tokens/radii.css";
+@import "../styles/tokens/elevation.css";
+@import "../styles/tokens/motion.css";
+
+/*
+ * Language-dependent type tokens. English uses the design-system defaults; Arabic switches to
+ * Tajawal / Almarai with untracked display type and looser line heights. Keying these on [lang]
+ * (rather than only on <html>) lets an element such as the language switch carry the other
+ * language's type.
+ */
+:root,
+[lang="en"] {
+  --font-display: var(--font-big-shoulders), "Oswald", "Arial Narrow", sans-serif;
+  --font-body: var(--font-archivo-narrow), "Arial Narrow", sans-serif;
+  --track-display: .02em;
+  --track-eyebrow: .22em;
+  --lh-display-xl: .86;
+  --lh-display-l: .9;
+  --lh-display-m: .94;
+  --lh-title: 1.15;
+}
+
+[lang="ar"] {
+  --font-display: var(--font-tajawal), var(--font-big-shoulders), sans-serif;
+  --font-body: var(--font-almarai), var(--font-archivo-narrow), sans-serif;
+  --track-display: 0em;
+  --track-eyebrow: .08em;
+  --lh-display-xl: 1.12;
+  --lh-display-l: 1.15;
+  --lh-display-m: 1.2;
+  --lh-title: 1.35;
+}
+
+@layer base {
+  html {
+    /* In-page anchors land below the fixed site header. */
+    scroll-padding-top: 72px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Modal dialogs lock the page behind them. */
+  html:has(dialog[open]) {
+    overflow: hidden;
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    margin: 0;
+    background: var(--cream-100);
+    color: var(--text-body);
+    font-family: var(--font-body);
+  }
+
+  a {
+    color: var(--teal-600);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--teal-700);
+  }
+}
+
+/* Arrows that point "forward" mirror in right-to-left layouts. */
+[dir="rtl"] .flip-rtl {
+  transform: scaleX(-1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,14 @@
+/* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
+@layer base, components;
+
+@layer components {
+  .band {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .stripe {
+    flex: 1;
+  }
+}

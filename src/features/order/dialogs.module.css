@@ -1,0 +1,137 @@
+/* Branch picker and customise sheet (inside the design system's Dialog). */
+
+.dialogNote {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Branch picker */
+
+.branchList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: calc(100vh - 280px);
+  overflow-y: auto;
+}
+
+.branch {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 18px;
+  text-align: start;
+  background: var(--white);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-card);
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.branchOn {
+  background: var(--teal-050);
+  border: 2px solid var(--teal-600);
+}
+
+.radio {
+  flex: 0 0 auto;
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(18, 48, 51, .3);
+  display: grid;
+  place-items: center;
+}
+
+.radioDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.branchOn .radio {
+  border-color: var(--teal-600);
+}
+
+.branchOn .radioDot {
+  background: var(--teal-600);
+}
+
+.branchText {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.branchName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.branchArea {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.branchStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text-body);
+}
+
+.branchNote {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-subtle);
+}
+
+/* Customise sheet */
+
+.sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-height: calc(100vh - 320px);
+  min-height: 180px;
+  overflow-y: auto;
+}
+
+.sheetPhoto {
+  position: relative;
+  height: 120px;
+  flex: 0 0 auto;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface-inset);
+}
+
+.qtyRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+.qtyLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--text-muted);
+}

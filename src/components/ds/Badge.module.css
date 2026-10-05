@@ -1,0 +1,23 @@
+/* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
+@layer base, components;
+
+@layer components {
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: var(--badge-bg);
+    color: var(--badge-fg);
+    border-radius: var(--radius-pill);
+    font: var(--fw-bold) var(--size-caption)/1.2 var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+  }
+
+  .teal { --badge-bg: var(--teal-050); --badge-fg: var(--teal-700); }
+  .coral { --badge-bg: var(--fire-opal-050); --badge-fg: var(--fire-opal-600); }
+  .sand { --badge-bg: var(--sandy-brown-050); --badge-fg: var(--sandy-brown-600); }
+  .solid { --badge-bg: var(--teal-600); --badge-fg: var(--cream-100); }
+  .cream { --badge-bg: var(--cream-200); --badge-fg: var(--ink-700); }
+}

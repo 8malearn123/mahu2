@@ -1,0 +1,46 @@
+.section {
+  background: var(--cream-200);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 96px) clamp(24px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(36px, 5vw, 72px);
+  align-items: center;
+}
+
+.copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(38px, 5.5vw, 68px);
+  line-height: var(--lh-display-l);
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+  color: var(--ink-900);
+}
+
+.body {
+  margin: 0;
+  max-width: 40ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.cardSlot {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}

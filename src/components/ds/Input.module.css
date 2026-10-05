@@ -1,0 +1,44 @@
+/* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
+@layer base, components;
+
+@layer components {
+  .box {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 48px;
+    padding: 0 var(--space-4);
+    background: var(--white);
+    border: var(--border-width-strong) solid var(--border-hairline);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--dur-fast) var(--ease-standard);
+  }
+
+  .box:focus-within {
+    border-color: var(--teal-600);
+  }
+
+  .invalid,
+  .invalid:focus-within {
+    border-color: var(--state-error);
+  }
+
+  .disabled {
+    background: var(--surface-inset);
+  }
+
+  .icon {
+    display: flex;
+    color: var(--text-subtle);
+  }
+
+  .input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: var(--fw-regular) var(--size-body)/1.4 var(--font-body);
+    color: var(--text-body);
+  }
+}

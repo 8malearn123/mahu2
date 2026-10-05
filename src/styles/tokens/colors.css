@@ -1,0 +1,67 @@
+:root{
+/* --- Core brand (from the 2021 Mahu visual identity, "THE COLORS") --- */
+--teal-600:#067B80;        /* TEAL      rgb(2 123 128)   cmyk 87 35 47 9 */
+--fire-opal-500:#E86660;   /* FIRE OPAL rgb(232 102 96)  cmyk 4 75 59 0 */
+--sandy-brown-500:#EF964A; /* SANDY BROWN rgb(239 150 74) cmyk 3 48 79 0 */
+
+/* --- Illustration palette, sampled from the packaging artwork --- */
+--pine-800:#0E5B55;        /* dark headland / deep shade */
+--teal-400:#64ADAF;        /* ocean band */
+--sand-300:#F3B07A;        /* beach band */
+--sun-200:#FAD9A6;         /* low sun */
+--cream-100:#FFF1DF;       /* paper / cup stock — the brand's true "white" */
+--cream-200:#F7E8D3;       /* cream, one step down (dividers, insets) */
+
+/* --- Neutrals: warm, never pure grey --- */
+--ink-900:#123033;
+--ink-700:#274B4C;
+--ink-500:#5C7476;
+--ink-300:#9CAFAF;
+--ink-100:#D9E0DB;
+--white:#FFFFFF;
+
+/* --- Tints & shades used for states --- */
+--teal-700:#045A5E;
+--teal-500:#0A9296;
+--teal-050:#E3F0EF;
+--fire-opal-600:#D2514B;
+--fire-opal-050:#FBE4E2;
+--sandy-brown-600:#D97F34;
+--sandy-brown-050:#FDEEDC;
+
+/* --- Semantic aliases --- */
+--surface-page:var(--cream-100);
+--surface-card:var(--white);
+--surface-inset:var(--cream-200);
+--surface-brand:var(--teal-600);
+--surface-brand-deep:var(--pine-800);
+--surface-accent:var(--sandy-brown-500);
+--surface-hot:var(--fire-opal-500);
+
+--text-body:var(--ink-900);
+--text-muted:var(--ink-500);
+--text-subtle:var(--ink-300);
+--text-on-brand:var(--cream-100);
+--text-on-accent:var(--ink-900);
+--text-brand:var(--teal-600);
+--text-price:var(--teal-600);
+
+--border-hairline:rgba(18,48,51,.12);
+--border-strong:var(--teal-600);
+--border-inset:rgba(18,48,51,.06);
+
+--focus-ring:var(--sandy-brown-500);
+
+--state-success:var(--teal-600);
+--state-warning:var(--sandy-brown-500);
+--state-error:var(--fire-opal-500);
+--state-info:var(--teal-400);
+
+/* --- Illustration band order (top -> bottom), the brand's signature scene --- */
+--scene-sky:var(--cream-100);
+--scene-sun:var(--sun-200);
+--scene-hills:var(--fire-opal-500);
+--scene-headland:var(--pine-800);
+--scene-sea:var(--teal-400);
+--scene-beach:var(--sand-300);
+}

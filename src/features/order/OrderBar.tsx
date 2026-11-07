@@ -25,13 +25,20 @@ export function OrderBar({ model, onPrev, onNext }: OrderBarProps) {
   }[screen];
   // Nothing to check out, or to pay for once every line has been removed.
   const nextDisabled = (screen === "menu" || screen === "confirm" || screen === "pay") && basket.length === 0;
+  // Every step moves on with the ink pill; the one that places the order wears the sunset.
+  const placesOrder = screen === "pay" || screen === "confirm";
 
   return (
     <div className={styles.bar}>
+      {/* A slim strip over the bar, so the nudge never squeezes the total beside the buttons on phones. */}
+      {isOneAway(state.points, totals.earned, basket) && (
+        <div className={styles.barNudge}>
+          <span className={styles.barNudgeText}>{t.cardNudge}</span>
+        </div>
+      )}
       <div className={styles.barRow}>
         <div className={styles.barText}>
           <span className={styles.barLabel}>{basket.length > 0 ? t.barItems : t.barEmpty}</span>
-          {isOneAway(state.points, totals.earned, basket) && <span className={styles.barNudge}>{t.cardNudge}</span>}
           <span className={styles.barTotal}>
             {totals.total}
             <span className={styles.barCurrency}>{tc.currency}</span>
@@ -43,7 +50,7 @@ export function OrderBar({ model, onPrev, onNext }: OrderBarProps) {
               {t.prev}
             </Button>
           )}
-          <Button variant="primary" size="lg" disabled={nextDisabled} onClick={onNext}>
+          <Button variant={placesOrder ? "brand" : "primary"} size="lg" disabled={nextDisabled} onClick={onNext}>
             {nextLabel}
             <ArrowIcon />
           </Button>

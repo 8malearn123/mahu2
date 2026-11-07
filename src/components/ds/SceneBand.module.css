@@ -3,12 +3,8 @@
 
 @layer components {
   .band {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .stripe {
-    flex: 1;
+    display: block;
+    width: 100%;
+    flex: none;
   }
 }

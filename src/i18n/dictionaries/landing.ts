@@ -9,12 +9,12 @@ const en = {
     description: "Order ahead, swing by your nearest window, and pick up your coffee while it's ready for you.",
   },
   hero: {
+    eyebrow: "Jazan, from the mountains to the sea",
     titleA: "Your coffee,",
     titleB: "your way.",
     body: "Order ahead, swing by your nearest window, and pick up your coffee while it's ready for you.",
     findWindow: "Find a window",
-    scrollCue: "See the menu",
-    imageAlt: "Mahu cups on a stone ledge by the sea",
+    imageAlt: "A coastline at dusk — mountains, sea and leaves in the foreground — with the Māhū wordmark",
   },
   how: {
     titleA: "Order. Collect.",
@@ -67,11 +67,16 @@ const en = {
     },
   },
   story: {
-    title: "Hello there!",
-    body1: "Mahu opened in 2021 with one idea: coffee worth stopping for, served without stopping. The colours come from the other side of the ocean — Hawaii, its sunsets and its trees — printed on cream paper stock.",
-    body2: "Every cup, bag and box carries a piece of the same landscape. Every riyal you spend here earns a point, and 100 points is a free drink.",
+    eyebrow: "Our story",
+    title: "Your moment starts at Māhū",
+    body1: "Our story began in the heart of Jazan, and so did our passion: serving coffee in the belief that every cup is part of an experience, and every detail carries the care we put into Mahu.",
+    body2: "Mahu's identity draws on the magic of the Hawaiian islands and the warmth of their tropical nature, in harmony with Jazan's beauty, its natural variety and its singular spirit. From that kinship came an identity with a sense of place, calm in its details and warm in its welcome — so every moment with Mahu feels closer to a journey, lived one cup at a time.",
     visit: "Visit the window",
-    alt: { bag: "Mahu bean bag", stamp: "Mahu stamp card", box: "Mahu box" },
+    alt: {
+      cup: "A Mahu cup in the orange-to-coral sunset gradient",
+      stickers: "A parcel wrapped in Mahu paper, sealed with the round sticker",
+      carrier: "A Mahu coffee carrier pouring into a cup",
+    },
   },
   find: {
     titleA: "Four windows,",
@@ -97,12 +102,12 @@ const ar: LandingDictionary = {
     description: "اطلبها مسبقًا، مرّ من أقرب نقطة، وخذ قهوتك وهي جاهزة لك.",
   },
   hero: {
+    eyebrow: "جازان من جبالها إلى بحرها",
     titleA: "قهوتك،",
     titleB: "على طريقك.",
     body: "اطلبها مسبقًا، مرّ من أقرب نقطة، وخذ قهوتك وهي جاهزة لك.",
     findWindow: "وين الشباك؟",
-    scrollCue: "شاهد القائمة",
-    imageAlt: "أكواب ماهو على حافة حجرية بجانب البحر",
+    imageAlt: "ساحل عند الغروب بين الجبال والبحر، وأوراق خضراء في المقدمة، وشعار ماهو في المنتصف",
   },
   how: {
     titleA: "اطلب. استلم.",
@@ -155,11 +160,16 @@ const ar: LandingDictionary = {
     },
   },
   story: {
-    title: "هلا وسهلا!",
-    body1: "بدأ ماهو في 2021 بفكرة واحدة: قهوة تستحق الوقوف، تُقدّم دون أن تتوقف. الألوان من الجهة الأخرى من المحيط — هاواي، غروبها وأشجارها — مطبوعة على ورق كريمي.",
-    body2: "كل كوب وكيس وعلبة يحمل جزءاً من المنظر نفسه. وكل ريال تصرفه هنا يضيف نقطة، و100 نقطة كوب مجاني.",
+    eyebrow: "قصتنا",
+    title: "لحظتك تبدأ من ماهو",
+    body1: "من قلب جازان بدأت حكايتنا، ومنها وُلد شغفنا بتقديم القهوة بروح تؤمن بأن كل كوب هو امتداد لتجربة، وتفصيل يجسّد الشغف الذي نصنعه في ماهو.",
+    body2: "بُنيت هوية ماهو بطابع يستلهم سحر جزر هاواي ودفء طبيعتها الاستوائية، في تناغم يلتقي مع جمال جازان وتنوعها الطبيعي وروحها الفريدة. ومن هذا التشابه وُلدت هوية تحمل الإحساس بالمكان، وهدوء التفاصيل، ودفء التجربة؛ لتصبح كل لحظة مع ماهو أقرب إلى رحلة تُعاش مع كل كوب.",
     visit: "زورونا عند الشباك",
-    alt: { bag: "كيس بُن ماهو", stamp: "بطاقة أختام ماهو", box: "علبة ماهو" },
+    alt: {
+      cup: "كوب ماهو بتدرّج الغروب من البرتقالي إلى المرجاني",
+      stickers: "طرد مغلّف بورق ماهو ومختوم بالملصق الدائري",
+      carrier: "حافظة قهوة ماهو تسكب في كوب",
+    },
   },
   find: {
     titleA: "أربعة شبابيك،",

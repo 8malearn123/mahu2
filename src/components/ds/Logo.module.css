@@ -4,5 +4,7 @@
 @layer components {
   .logo {
     display: block;
+    flex: none;
+    overflow: visible;
   }
 }

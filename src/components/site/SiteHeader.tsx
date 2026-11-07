@@ -45,13 +45,13 @@ type SiteHeaderProps = {
 };
 
 /**
- * Fixed site header. Desktop (≥ 900px) shows the nav bar; smaller screens get a compact bar and a
- * full-screen menu. On the landing page it starts transparent over the hero and turns teal once
- * the page scrolls.
+ * Fixed site header: an ink bar with the horizontal logo, as on the rebrand's black logo panel.
+ * Desktop (≥ 900px) shows the nav bar; smaller screens get a compact bar and a full-screen menu.
+ * It casts a shadow once the page scrolls.
  */
 export function SiteHeader({ lang, page }: SiteHeaderProps) {
   const t = common[lang];
-  const overlay = page === "landing";
+  const onLanding = page === "landing";
   const [menuOpen, setMenuOpen] = useState(false);
   const scrolled = useSyncExternalStore(subscribeScroll, () => window.scrollY > 24, () => false);
   const hash = useSyncExternalStore(subscribeHash, () => window.location.hash, () => "");
@@ -60,15 +60,15 @@ export function SiteHeader({ lang, page }: SiteHeaderProps) {
   const items = keys.map((key) => ({ key, label: t.nav[key], href: navHref(key, page, lang) }));
   const active: NavKey =
     page === "landing" ? (keys.find((key) => hash === `#${key}`) ?? "menu") : page;
-  const logoHref = overlay ? "#top" : `/${lang}`;
+  const logoHref = onLanding ? "#top" : `/${lang}`;
   const orderHref = `/${lang}/order`;
 
   return (
     <>
-      <div className={cx(styles.fixed, overlay && styles.overlay, scrolled && styles.scrolled, menuOpen && styles.open)}>
+      <div className={cx(styles.fixed, scrolled && styles.scrolled, menuOpen && styles.open)}>
         <header className={styles.desktop}>
           <NavLink href={logoHref} aria-label="Mahu" className={styles.logoLink}>
-            <Logo color="cream" height={28} eager />
+            <Logo variant="horizontal" color="cream" height={36} />
           </NavLink>
           <nav className={styles.nav}>
             {items.map((item) => (
@@ -84,7 +84,7 @@ export function SiteHeader({ lang, page }: SiteHeaderProps) {
           </nav>
           <div className={styles.right}>
             <LanguageSwitch lang={lang} className={styles.langPill} />
-            <Button variant="onBrand" size="sm" href={orderHref} className={styles.orderButton}>
+            <Button variant="brand" size="sm" href={orderHref} className={styles.orderButton}>
               {t.order}
             </Button>
           </div>
@@ -93,7 +93,7 @@ export function SiteHeader({ lang, page }: SiteHeaderProps) {
         <div className={styles.mobile}>
           <div className={styles.mobileBar}>
             <NavLink href={logoHref} aria-label="Mahu" className={styles.logoLink}>
-              <Logo color="cream" height={26} eager />
+              <Logo variant="horizontal" color="cream" height={32} />
             </NavLink>
             <LanguageSwitch lang={lang} className={styles.mobileLang} />
             <button
@@ -126,7 +126,7 @@ export function SiteHeader({ lang, page }: SiteHeaderProps) {
           )}
         </div>
       </div>
-      {!overlay && <div className={styles.spacer} aria-hidden="true" />}
+      <div className={styles.spacer} aria-hidden="true" />
     </>
   );
 }

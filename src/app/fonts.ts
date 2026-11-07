@@ -1,37 +1,28 @@
-import { Almarai, Tajawal } from "next/font/google";
+import { Figtree, Tajawal } from "next/font/google";
 import localFont from "next/font/local";
 
-// Latin faces shipped with the Mahu design system. They stand in for the brand's Luam,
-// which was never supplied.
+// The rebrand sets its copy in Effra, which isn't available for the web here; these stand in for it.
+
+// Latin headlines: tall and condensed like the logo's MāHū letters. Shipped with the Mahu design system.
 export const bigShoulders = localFont({
   src: "../assets/fonts/big-shoulders-display-latin.woff2",
   weight: "300 700",
   variable: "--font-big-shoulders",
 });
 
-export const archivoNarrow = localFont({
-  src: "../assets/fonts/archivo-narrow-latin.woff2",
-  weight: "400 700",
-  variable: "--font-archivo-narrow",
+// Latin text: stand-in for Effra.
+export const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-figtree",
 });
 
-// Arabic faces. Display type only ever uses the bold weight.
+// Arabic headlines and text: the closest free match to Effra Arabic.
 export const tajawal = Tajawal({
   subsets: ["arabic"],
-  weight: "700",
+  weight: ["400", "500", "700"],
   variable: "--font-tajawal",
 });
 
-export const almarai = Almarai({
-  subsets: ["arabic"],
-  weight: ["400", "700"],
-  variable: "--font-almarai",
-});
-
 /** Class names that define every font's CSS variable; set them on <html>, where the tokens live. */
-export const fontVariables = [
-  bigShoulders.variable,
-  archivoNarrow.variable,
-  tajawal.variable,
-  almarai.variable,
-].join(" ");
+export const fontVariables = [bigShoulders.variable, figtree.variable, tajawal.variable].join(" ");

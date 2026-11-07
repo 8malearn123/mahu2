@@ -1,4 +1,4 @@
-import { Badge, Button, SlotImage, Tabs } from "@/components/ds";
+import { Badge, Button, Eyebrow, Landscape, Logo, SlotImage, Tabs } from "@/components/ds";
 import { CATALOG, CATEGORIES, getItem, HERO_ITEM_ID, HERO_SLOT, usualSlot } from "../catalog";
 import { optionText, toGoText } from "../copy";
 import type { OrderModel } from "../model";
@@ -20,25 +20,28 @@ export function MenuScreen({ model, onAddUsual }: MenuScreenProps) {
   return (
     <div className={styles.screen}>
       <div className={ui.intro}>
-        <span className={ui.eyebrow}>{known ? t.stepMenuKnown : t.stepMenu}</span>
+        <Eyebrow>{known ? t.stepMenuKnown : t.stepMenu}</Eyebrow>
         <h1 className={styles.menuTitle}>{t.menuTitle}</h1>
         <p className={ui.lead}>{t.menuLead}</p>
       </div>
 
       {usual && (
         <div className={styles.usual}>
+          <Landscape crop="wavesEnd" color="var(--ink-700)" fit="contain" className={styles.usualArt} />
           <div className={styles.usualTop}>
             <div className={styles.usualThumb}>
               <SlotImage id={usualSlot(usual.id)} alt={t.names[usual.id]} />
             </div>
             <div className={styles.usualText}>
-              <span className={styles.usualLabel}>{t.usualLabel}</span>
+              <Eyebrow tone="cream" className={styles.usualLabel}>
+                {t.usualLabel}
+              </Eyebrow>
               <span className={styles.usualName}>{t.names[usual.id]}</span>
               <span className={styles.usualOptions}>{optionText(usual, t, lang)}</span>
               {known && <span className={styles.usualHint}>{t.usualOneTap}</span>}
             </div>
           </div>
-          <Button variant="onBrand" size="md" block onClick={onAddUsual}>
+          <Button variant="onBrand" size="md" block className={styles.usualButton} onClick={onAddUsual}>
             {known ? t.usualAgain : t.addUsual}
           </Button>
         </div>
@@ -48,7 +51,7 @@ export function MenuScreen({ model, onAddUsual }: MenuScreenProps) {
         <div className={styles.pointsBody}>
           <div className={styles.pointsHead}>
             <div className={styles.pointsHeadText}>
-              <span className={ui.eyebrow}>{t.cardLabel}</span>
+              <Eyebrow className={styles.cardEyebrow}>{t.cardLabel}</Eyebrow>
               <span className={styles.cardTitle}>{t.cardTitle}</span>
               <span className={styles.note}>{t.cardHow}</span>
             </div>
@@ -71,30 +74,10 @@ export function MenuScreen({ model, onAddUsual }: MenuScreenProps) {
           </div>
           {isOneAway(points, totals.earned, basket) && <span className={styles.nudge}>{t.cardNudge}</span>}
         </div>
+        {/* The cover in miniature: the sunset, the logo, Jazan's mountains and sea in cream line. */}
         <div aria-hidden="true" className={styles.scene}>
-          <div className={styles.sun} />
-          <div className={styles.hills} />
-          <div className={styles.sea}>
-            <svg
-              width="100%"
-              height="100%"
-              viewBox="0 0 120 40"
-              preserveAspectRatio="none"
-              fill="none"
-              stroke="var(--cream-100)"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-            >
-              <path d="M0 10c10-7 20 7 30 0s20 7 30 0 20 7 30 0 20 7 30 0" />
-              <path d="M0 22c10-7 20 7 30 0s20 7 30 0 20 7 30 0 20 7 30 0" />
-              <path d="M0 34c10-7 20 7 30 0s20 7 30 0 20 7 30 0 20 7 30 0" />
-            </svg>
-          </div>
-          <div className={styles.sand} />
-          <div className={styles.board}>
-            <div className={styles.boardStripe} />
-          </div>
-          <div className={styles.boardSmall} />
+          <Logo color="cream" height={46} className={styles.sceneLogo} />
+          <Landscape crop="full" className={styles.sceneArt} />
         </div>
       </div>
 
@@ -146,7 +129,7 @@ export function MenuScreen({ model, onAddUsual }: MenuScreenProps) {
                 <div className={styles.itemNameRow}>
                   <span className={styles.itemName}>{name}</span>
                   {(item.badge || item.limited) && (
-                    <Badge tone={item.limited ? "coral" : "teal"}>{item.badge ? t.badgeMost : t.badgeLimited}</Badge>
+                    <Badge tone={item.limited ? "coral" : "sunset"}>{item.badge ? t.badgeMost : t.badgeLimited}</Badge>
                   )}
                 </div>
                 <span className={styles.note}>{t.notes[item.id]}</span>

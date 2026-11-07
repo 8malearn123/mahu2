@@ -1,56 +1,43 @@
+/*
+ * Two panels: the deck's cover (sunset gradient, ink copy, cream line art along the bottom) at the
+ * inline start, the identity's website photograph at the end. Stacked on phones, photo first.
+ */
 .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: clamp(600px, calc(100svh - 64px), 860px);
+  background: var(--gradient-sunset);
+  color: var(--text-on-brand);
+}
+
+.copyPanel {
   position: relative;
-  width: 100%;
-  aspect-ratio: 1774 / 887;
-  min-height: min(100svh, 620px);
-  max-height: 100svh;
   display: flex;
-  align-items: center;
-  background: var(--teal-600);
-  color: var(--cream-100);
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
   overflow: hidden;
+  background: var(--gradient-sunset);
+  /* Bottom padding keeps the copy clear of the peaks: the art is 428/1366 of the panel's width (50vw). */
+  padding-block: clamp(40px, 6vw, 80px) calc(15.7vw * .62 + 32px);
+  /* Line the copy up with the 1100px content column used by every section below. */
+  padding-inline: max(24px, calc(50vw - 550px)) clamp(24px, 4vw, 64px);
 }
 
-/* next/image `fill` already makes it absolute, inset 0, 100% × 100%. */
-.image {
-  object-fit: cover;
-  object-position: var(--hero-img-pos, 6% bottom);
-}
-
-/* Darkens the side the copy sits on (mirrored in Arabic through --hero-scrim-dir). */
-.scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to var(--hero-scrim-dir, right), rgba(18,48,51,.92) 0%, rgba(18,48,51,.86) 26%, rgba(18,48,51,.62) 48%, rgba(18,48,51,.24) 74%, rgba(18,48,51,0) 100%);
-}
-
-/* Fades the photo into the cream page at the bottom. */
-.fade {
+/* The cover's mountains and waves, sitting on the bottom edge. */
+.art {
   position: absolute;
   inset-inline: 0;
-  bottom: 0;
-  height: 26%;
-  background: linear-gradient(to bottom, rgba(255,241,223,0) 0%, rgba(255,241,223,.55) 52%, var(--cream-100) 100%);
-}
-
-.inner {
-  position: relative;
-  width: 100%;
-  min-height: inherit;
-  padding: clamp(24px, 4vw, 64px) clamp(24px, 4vw, 48px) clamp(90px, 12vw, 150px);
+  bottom: -1px;
 }
 
 .copy {
-  position: absolute;
-  bottom: clamp(104px, 20%, 200px);
-  inset-inline-start: max(24px, calc(50% - 550px));
-  inset-inline-end: auto;
-  width: min(46ch, calc(100% - 48px));
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
   align-items: flex-start;
-  min-width: 0;
+  max-width: 34rem;
 }
 
 .title {
@@ -66,25 +53,17 @@
 
 .body {
   margin: 0;
-  max-width: 42ch;
-  font-size: clamp(15px, 2.6svh, 18px);
+  max-width: 40ch;
+  font-size: clamp(16px, 1.35vw, 19px);
   line-height: 1.55;
-  color: var(--cream-100);
 }
 
 .actions {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
-  padding-top: 4px;
-}
-
-/* On phones the one-line row ran off-screen and clipped "Find a window" (the English row is ~450px). */
-@media (width < 480px) {
-  .actions {
-    flex-wrap: wrap;
-  }
+  padding-top: 6px;
 }
 
 .orderLabel {
@@ -94,44 +73,39 @@
   white-space: nowrap;
 }
 
-/* A <button> in the design: border-box and centred text like one. */
 .findButton {
-  box-sizing: border-box;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 48px;
-  padding: 0 22px;
-  background: transparent;
-  border: 2px solid var(--cream-100);
-  border-radius: var(--radius-pill);
-  color: var(--cream-100);
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  text-align: center;
   white-space: nowrap;
-  cursor: pointer;
-  transition: background 120ms var(--ease-standard), color 120ms var(--ease-standard);
 }
 
-.findButton:hover {
-  background: var(--cream-100);
-  color: var(--teal-700);
+/* The photograph keeps its square composition: cover crops only the edges the panel can't fit. */
+.photo {
+  position: relative;
+  min-width: 0;
+  min-height: 100%;
+  background: var(--ink-900);
 }
 
-.scrollCue {
-  position: absolute;
-  inset-inline: 0;
-  bottom: clamp(14px, 2vw, 26px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: var(--ink-900);
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: var(--track-eyebrow);
+/* next/image `fill` already makes it absolute, inset 0, 100% × 100%. */
+.image {
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+@media (width < 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .photo {
+    order: -1;
+    min-height: 0;
+    aspect-ratio: 1;
+    max-height: 62svh;
+  }
+
+  .copyPanel {
+    padding-block: 40px calc(31.3vw * .55 + 24px);
+    padding-inline: 24px;
+  }
 }

@@ -18,6 +18,7 @@
   .tab {
     position: relative;
     min-height: 44px;
+    margin: 0;
     border: none;
     font: var(--fw-bold) var(--size-body-s)/1 var(--font-body);
     text-transform: uppercase;
@@ -28,6 +29,17 @@
       background var(--dur-fast) var(--ease-standard);
   }
 
+  /* Arabic has no capitals to track out; it reads better a step larger. */
+  .tab:lang(ar) {
+    font-size: var(--size-body);
+    letter-spacing: 0;
+  }
+
+  .tab:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+
   .underline .tab {
     padding: 0 0 var(--space-3);
     background: transparent;
@@ -35,9 +47,23 @@
     border-radius: 0;
   }
 
+  .underline .tab:hover {
+    color: var(--text-body);
+  }
+
   .underline .on {
-    color: var(--teal-600);
-    box-shadow: inset 0 -3px 0 0 var(--teal-600);
+    color: var(--text-body);
+  }
+
+  /* The active tab sits on a sunset bar, laid over the list's hairline. */
+  .underline .on::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: calc(-1 * var(--border-width));
+    height: 3px;
+    border-radius: var(--radius-pill);
+    background: var(--gradient-sunset-x);
   }
 
   .pill .tab {
@@ -47,8 +73,14 @@
     border-radius: var(--radius-pill);
   }
 
-  .pill .on {
-    background: var(--teal-600);
+  .pill .tab:hover {
+    background: var(--cream-300);
+    color: var(--ink-900);
+  }
+
+  .pill .on,
+  .pill .on:hover {
+    background: var(--ink-900);
     color: var(--cream-100);
   }
 }

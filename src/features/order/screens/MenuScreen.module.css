@@ -23,16 +23,31 @@
   color: var(--text-muted);
 }
 
-/* Your usual */
+/* Your usual: an ink card, with a swell of the cover's waves drawn faintly into its corner. */
 
 .usual {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 18px;
   padding: 18px;
-  background: var(--teal-600);
+  background: var(--ink-900);
   color: var(--cream-100);
   border-radius: var(--radius-card);
+}
+
+.usualArt {
+  position: absolute;
+  z-index: -1;
+  inset-inline-end: 0;
+  bottom: -1px;
+  width: min(420px, 75%);
+}
+
+[dir="rtl"] .usualArt {
+  transform: scaleX(-1);
 }
 
 .usualTop {
@@ -47,7 +62,7 @@
   height: 92px;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  background: var(--cream-100);
+  background: var(--white);
 }
 
 .usualText {
@@ -55,14 +70,13 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 3px;
 }
 
 .usualLabel {
   font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: var(--track-eyebrow);
-  color: rgba(255, 241, 223, .72);
+  margin-bottom: 2px;
 }
 
 .usualName {
@@ -77,27 +91,30 @@
 .usualOptions {
   font-size: 14px;
   line-height: 1.5;
-  color: rgba(255, 241, 223, .86);
+  color: var(--cream-a86);
 }
 
 .usualHint {
   font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
-  color: var(--sun-200);
+  color: var(--cream-a72);
 }
 
-/* Points card */
+.usualButton {
+  position: relative;
+}
+
+/* Points card: an inset paper panel, with the cover in miniature beside it. */
 
 .points {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 18px;
   padding: 20px 22px;
-  background: var(--white);
-  border: 1px solid var(--border-hairline);
+  background: var(--surface-inset);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-1);
 }
 
 .pointsBody {
@@ -118,8 +135,15 @@
 .pointsHeadText {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 6px;
   min-width: 0;
+}
+
+/* Coral text is under 4.5:1 on the inset panel: ink words, sunset dots. */
+.cardEyebrow {
+  --eyebrow-fg: var(--ink-900);
+  font-size: 12px;
 }
 
 .cardTitle {
@@ -130,6 +154,10 @@
   letter-spacing: var(--track-display);
   text-transform: uppercase;
   color: var(--ink-900);
+}
+
+.points .note {
+  color: var(--ink-500);
 }
 
 .badges {
@@ -150,15 +178,22 @@
   flex: 1 1 220px;
   min-width: 180px;
   height: 12px;
-  background: var(--surface-inset);
-  border: 2px solid var(--teal-600);
+  background: var(--cream-100);
+  border: 1px solid var(--cream-300);
+  border-radius: var(--radius-pill);
   overflow: hidden;
 }
 
 .fill {
   height: 100%;
-  background: var(--teal-600);
+  border-radius: var(--radius-pill);
+  background: var(--gradient-sunset-x);
   transition: width 200ms var(--ease-standard);
+}
+
+/* Fills from the right in Arabic: orange where it starts. */
+[dir="rtl"] .fill {
+  background: linear-gradient(270deg, var(--orange-500) 0%, var(--coral-500) 100%);
 }
 
 .pointsNow {
@@ -174,7 +209,7 @@
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
-  color: var(--text-muted);
+  color: var(--ink-500);
 }
 
 .thisOrder {
@@ -182,23 +217,23 @@
   align-items: center;
   gap: 6px;
   padding: 5px 12px;
-  background: var(--teal-050);
+  background: var(--orange-100);
   border-radius: var(--radius-pill);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
-  color: var(--teal-700);
+  color: var(--orange-800);
 }
 
 .nudge {
   font-size: 15px;
   font-weight: 700;
   line-height: 1.5;
-  color: var(--teal-700);
+  color: var(--ink-900);
 }
 
-/* Beach scene beside the points (flat bands and boards, as on the packaging) */
+/* The rebrand cover, small: sunset gradient, cream logo, cream mountains and waves along the bottom. */
 
 .scene {
   position: relative;
@@ -206,74 +241,19 @@
   min-width: 0;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  background: var(--sun-200);
+  background: var(--gradient-sunset);
 }
 
-.sun {
+.sceneLogo {
   position: absolute;
-  top: 20px;
-  inset-inline-end: 26px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--fire-opal-500);
+  top: 16px;
+  inset-inline-start: 18px;
 }
 
-.hills {
+.sceneArt {
   position: absolute;
   inset-inline: 0;
-  bottom: 34%;
-  height: 44%;
-  background: var(--pine-800);
-  clip-path: polygon(0 100%, 18% 34%, 38% 100%, 56% 52%, 80% 14%, 100% 100%);
-}
-
-.sea {
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  height: 34%;
-  background: var(--teal-400);
-}
-
-.sand {
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  height: 11%;
-  background: var(--sand-300);
-}
-
-.board {
-  position: absolute;
-  bottom: 9%;
-  inset-inline-start: 22px;
-  width: 15px;
-  height: 68px;
-  border-radius: 999px;
-  background: var(--cream-100);
-  transform: rotate(-14deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.boardStripe {
-  width: 3px;
-  height: 48px;
-  border-radius: 999px;
-  background: var(--fire-opal-500);
-}
-
-.boardSmall {
-  position: absolute;
-  bottom: 9%;
-  inset-inline-start: 48px;
-  width: 13px;
-  height: 56px;
-  border-radius: 999px;
-  background: var(--teal-600);
-  transform: rotate(10deg);
+  bottom: -1px;
 }
 
 /* Most ordered */

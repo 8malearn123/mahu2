@@ -2,7 +2,7 @@ import type { ComponentProps } from "react";
 import { cx } from "@/lib/cx";
 import styles from "./Badge.module.css";
 
-export type BadgeTone = "teal" | "coral" | "sand" | "solid" | "cream";
+export type BadgeTone = "teal" | "coral" | "sand" | "solid" | "cream" | "sunset";
 
 export function Badge({
   tone = "teal",

@@ -23,16 +23,32 @@
   width: 100%;
   padding: 16px 18px;
   text-align: start;
-  background: var(--white);
-  border: 1px solid var(--border-hairline);
+  background: transparent;
+  /* Same box either way: the selected card's 2px edge is drawn inside, not added. */
+  border: none;
+  box-shadow: inset 0 0 0 1px var(--border-hairline);
   border-radius: var(--radius-card);
   cursor: pointer;
   font-family: var(--font-body);
+  transition:
+    background 120ms var(--ease-standard),
+    box-shadow 120ms var(--ease-standard);
 }
 
-.branchOn {
-  background: var(--teal-050);
-  border: 2px solid var(--teal-600);
+.branch:hover {
+  background: var(--surface-inset);
+}
+
+.branch:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* Selected: an inset paper card with an ink edge; the radio matches the DS RadioGroup. */
+.branchOn,
+.branchOn:hover {
+  background: var(--surface-inset);
+  box-shadow: inset 0 0 0 2px var(--ink-900);
 }
 
 .radio {
@@ -41,7 +57,8 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 2px solid rgba(18, 48, 51, .3);
+  border: 2px solid var(--ink-500);
+  background: var(--white);
   display: grid;
   place-items: center;
 }
@@ -54,11 +71,12 @@
 }
 
 .branchOn .radio {
-  border-color: var(--teal-600);
+  border-color: var(--ink-900);
+  background: var(--ink-900);
 }
 
 .branchOn .radioDot {
-  background: var(--teal-600);
+  background: var(--cream-100);
 }
 
 .branchText {
@@ -98,7 +116,7 @@
 .branchNote {
   font-size: 13px;
   line-height: 1.5;
-  color: var(--text-subtle);
+  color: var(--ink-500);
 }
 
 /* Customise sheet */

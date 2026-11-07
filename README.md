@@ -33,8 +33,9 @@ npm run lint
 src/
   app/              routes. app/[lang]/layout.tsx is the root layout: it sets lang/dir and the fonts
                     fonts.ts, globals.css, global-not-found.tsx, icon.png
-  styles/tokens/    design tokens from the Mahu Cafe design system: colour, type, spacing, radii, elevation, motion
-  components/ds/    design-system components: Button, Badge, Logo, SceneBand, Dialog, form controls, OrderLine, SlotImage
+  styles/tokens/    design tokens: colour (the 2026 rebrand palette), type, spacing, radii, elevation, motion
+  components/ds/    design-system components: Button, Badge, Logo, Landscape, Eyebrow, SceneBand, Dialog, form
+                    controls, OrderLine, SlotImage
   components/site/  site header (desktop nav and mobile menu), footer, language switch
   features/         one folder per page (landing, order, jobs, franchise), plus forms shared by jobs and franchise
   i18n/             locale config, page metadata, and one dictionary per page
@@ -42,12 +43,27 @@ src/
   assets/           brand images, fonts, and the photos placed in the design's image slots
 ```
 
+## Brand
+
+The site follows the 2026 rebrand ("REBRANDING.MAHU CAFE"):
+
+- **Colour.** Cream paper (`#FFF3E1`) and ink (`#0D0D0D`), led by the sunset gradient: orange `#EF964A` into
+  coral `#E86660`. Teal `#067B80` is a minor accent. Text on orange, coral or the gradient is ink; cream text
+  only sits on ink or photos. See `src/styles/tokens/colors.css`.
+- **Logo.** `Logo` draws the bilingual wordmark (ماهو / MāHū) as vectors extracted from the brand PDF:
+  `stacked`, `horizontal`, `latin` and `arabic` lockups.
+- **Line art.** `Landscape` draws the cover's mountains and waves ("Jazan, from its mountains to its sea").
+  It's the only illustration style.
+- **Type.** The brand sets its copy in Effra, which isn't licensed for the web here. Tajawal stands in for
+  Arabic, Figtree for Latin text; Latin headlines use Big Shoulders Display, which echoes the logo's
+  condensed letters.
+
 ## Styling
 
 - **CSS Modules** sit on top of the design system's CSS custom properties.
 - **Cascade layers.** `globals.css` declares two: `base` for element defaults and `components` for the design-system
   primitives. Page modules are unlayered, so their overrides always win.
-- **Arabic.** Overrides on `[lang="ar"]` switch the type to Tajawal and Almarai and loosen tracking and line heights.
+- **Arabic.** Overrides on `[lang="ar"]` switch the type to Tajawal and loosen tracking and line heights.
 - **RTL.** Layouts use logical properties (`inset-inline-start`, `margin-inline-start`…), so they mirror automatically.
 
 ## Copy and languages
@@ -70,11 +86,12 @@ src/
 
 ## Gaps in the brand assets
 
-These come from the design system's own list of missing material:
-
-- **Fonts.** Big Shoulders Display and Archivo Narrow stand in for the brand's Luam typeface, which wasn't supplied.
-- **Logo.** The wordmark is a raster PNG. Swap in a vector logo in `src/assets/brand` when one exists.
-- **Arabic wordmark.** There isn't one yet.
+- **Fonts.** Effra (the rebrand's typeface) isn't licensed for the web here; Tajawal, Figtree and Big
+  Shoulders Display stand in. Swap them in `src/app/fonts.ts` once web licences exist.
+- **Hero photo.** The rebrand's website photo was supplied at 833 × 833 px with the logo baked in. A larger
+  version (about 2000 px) without the logo would look sharper on large and high-density screens.
+- **Product photos.** The drink photos in `src/assets/slots/` and the jobs-page photos still show the 2021
+  cups (teal logo, beach illustrations). Reshoot them with the new gradient cups.
 
 ## Deploying
 

@@ -1,66 +1,17 @@
+import type { CSSProperties } from "react";
+import { Landscape } from "@/components/ds";
 import type { Locale } from "@/i18n/config";
 import { franchise } from "@/i18n/dictionaries/franchise";
 import { cx } from "@/lib/cx";
 import styles from "./ProofSection.module.css";
 
-// The scene drawn above each stat, in order.
-const MOTIFS = ["sun", "wave", "board", "cup"] as const;
+// The colour of the tile above each stat, in order. The horizon (the sticker) is the page's one.
+const TILES = [styles.orange, styles.coral, styles.ink, styles.horizon] as const;
 
-type Motif = (typeof MOTIFS)[number];
-
-function Scene({ motif }: { motif: Motif }) {
-  switch (motif) {
-    case "sun":
-      return (
-        <>
-          <span className={styles.sunDisc} />
-          <span className={styles.sunSea} />
-          <span className={cx(styles.sunGlint, styles.sunGlint1)} />
-          <span className={cx(styles.sunGlint, styles.sunGlint2)} />
-          <span className={cx(styles.sunGlint, styles.sunGlint3)} />
-          <span className={cx(styles.sunGlint, styles.sunGlint4)} />
-          <span className={cx(styles.sunGlint, styles.sunGlint5)} />
-        </>
-      );
-    case "wave":
-      return (
-        <>
-          <span className={styles.waveSun} />
-          <span className={styles.waveHillLeft} />
-          <span className={styles.waveHillRight} />
-          <span className={styles.waveCrest} />
-          <span className={styles.waveGround} />
-          <span className={cx(styles.waveDash, styles.waveDash1)} />
-          <span className={cx(styles.waveDash, styles.waveDash2)} />
-          <span className={cx(styles.waveDash, styles.waveDash3)} />
-          <span className={cx(styles.waveDash, styles.waveDash4)} />
-          <span className={cx(styles.waveDash, styles.waveDash5)} />
-        </>
-      );
-    case "board":
-      return (
-        <>
-          <span className={styles.boardSea} />
-          <span className={styles.boardSand} />
-          <span className={styles.boardLeft} />
-          <span className={styles.boardMiddle} />
-          <span className={styles.boardRight} />
-          <span className={styles.boardStripe} />
-        </>
-      );
-    case "cup":
-      return (
-        <>
-          <span className={styles.cupSand} />
-          <span className={styles.cupSun} />
-          <span className={styles.cupHillLeft} />
-          <span className={styles.cupHillRight} />
-          <span className={styles.cupSea} />
-        </>
-      );
-  }
-}
-
+/**
+ * "A small window, a big number": four stats, each under a coloured tile. The tiles are windows
+ * onto one stretch of the cover's line art, so the panorama runs on from tile to tile.
+ */
 export function ProofSection({ lang }: { lang: Locale }) {
   const t = franchise[lang].proof;
   return (
@@ -72,8 +23,12 @@ export function ProofSection({ lang }: { lang: Locale }) {
         <div className={styles.grid}>
           {t.stats.map((stat, index) => (
             <div key={stat.value} className={styles.card}>
-              <div className={styles.scene} aria-hidden="true">
-                <Scene motif={MOTIFS[index % MOTIFS.length]} />
+              <div
+                className={cx(styles.tile, TILES[index % TILES.length])}
+                style={{ "--i": index % TILES.length } as CSSProperties}
+                aria-hidden="true"
+              >
+                <Landscape className={styles.tileArt} />
               </div>
               <div className={styles.text}>
                 <div className={styles.figure}>

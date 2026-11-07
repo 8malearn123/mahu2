@@ -12,6 +12,7 @@ export function BranchDialog({ model }: { model: OrderModel }) {
     <Dialog
       open={state.branchOpen}
       title={t.branchTitle}
+      closeLabel={t.close}
       onClose={() => dispatch({ type: "set", patch: { branchOpen: false } })}
     >
       <div className={styles.branchList}>

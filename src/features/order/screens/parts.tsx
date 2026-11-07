@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Checkbox, Input, OrderLine, RadioGroup } from "@/components/ds";
+import { Checkbox, Eyebrow, Input, OrderLine, RadioGroup } from "@/components/ds";
 import type { Locale } from "@/i18n/config";
 import { getBranch, isOpenAt, statusLabel, type Branch } from "@/lib/branches";
 import { cx } from "@/lib/cx";
@@ -16,7 +16,7 @@ type ModelProps = { model: OrderModel };
 export function ScreenIntro({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
   return (
     <div className={ui.intro}>
-      <span className={ui.eyebrow}>{eyebrow}</span>
+      <Eyebrow>{eyebrow}</Eyebrow>
       <h1 className={ui.title}>{title}</h1>
       {children && <p className={ui.lead}>{children}</p>}
     </div>

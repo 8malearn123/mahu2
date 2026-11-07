@@ -1,4 +1,4 @@
-import { Button, SceneBand } from "@/components/ds";
+import { Button, Eyebrow, Landscape, Logo, SceneBand } from "@/components/ds";
 import { NavigateIcon } from "@/components/icons";
 import { directionsUrl, getBranch } from "@/lib/branches";
 import { cx } from "@/lib/cx";
@@ -23,15 +23,23 @@ export function DoneScreen({ model }: { model: OrderModel }) {
   return (
     <div className={ui.stack26}>
       <div className={ui.codeCard}>
-        <span className={ui.codeLabel}>{t.orderCode}</span>
-        <span className={ui.code} dir="ltr">
-          {state.code}
-        </span>
+        <Landscape className={ui.codeArt} />
+        <div className={ui.codeHead}>
+          <div className={ui.codeText}>
+            <Eyebrow tone="ink">{t.orderCode}</Eyebrow>
+            <span className={ui.code} dir="ltr">
+              {state.code}
+            </span>
+          </div>
+          <span aria-hidden="true" className={ui.codeLogo}>
+            <Logo color="cream" height={72} />
+          </span>
+        </div>
         <h1 className={ui.doneTitle}>{t.doneTitle}</h1>
         <p className={ui.doneBody}>{state.pickup === "now" ? t.doneBodyNow : t.doneBodyLater}</p>
-        <SceneBand scene="beach" height={12} />
       </div>
-      <div className={ui.card}>
+      <div className={cx(ui.card, ui.receipt)}>
+        <SceneBand scene="sunset" height={8} className={ui.receiptBand} />
         {receipt.map((row) => (
           <div key={row.label} className={cx(ui.row, ui.rowLoose)}>
             <span className={ui.label}>{row.label}</span>

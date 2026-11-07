@@ -104,9 +104,15 @@
 .proof {
   margin-top: auto;
   font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
-  color: var(--teal-600);
+  color: var(--text-accent);
+}
+
+.proof:lang(ar) {
+  font-size: 13px;
 }
 
 .buy {
@@ -134,14 +140,19 @@
   margin-inline-start: 5px;
 }
 
-/* This week's limited drop */
+.currency:lang(ar) {
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+/* This week's limited drop: a sunset bar, like the one under the deck's story page. */
 
 .drop {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  background: var(--fire-opal-500);
-  color: var(--cream-100);
+  background: var(--gradient-sunset-x);
+  color: var(--text-on-brand);
   border-radius: var(--radius-card);
   overflow: hidden;
 }
@@ -149,7 +160,7 @@
 .dropPhoto {
   flex: 1 1 150px;
   min-height: 150px;
-  background: rgba(255,241,223,.22);
+  background: var(--white);
 }
 
 .dropContent {
@@ -183,28 +194,20 @@
 .dropBody {
   font-size: 16px;
   line-height: 1.6;
-  color: rgba(255,241,223,.9);
 }
 
-/* A <button> in the design: border-box and centred text like one. */
 .dropButton {
-  box-sizing: border-box;
-  flex: 1 1 200px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 52px;
-  padding: 0 28px;
-  background: var(--cream-100);
-  color: var(--teal-700);
-  border: none;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  text-align: center;
-  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+/* The default coral ring would vanish into the gradient. */
+.dropButton:focus-visible {
+  outline-color: var(--ink-900);
+}
+
+/* Once the button wraps under the copy, it takes the full width. */
+@media (width < 640px) {
+  .dropButton {
+    flex: 1 1 100%;
+  }
 }

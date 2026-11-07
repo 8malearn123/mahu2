@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Logo, SceneBand } from "@/components/ds";
+import { Landscape, Logo } from "@/components/ds";
 import { fontVariables } from "./fonts";
 import "./globals.css";
 import styles from "./global-not-found.module.css";
@@ -17,7 +17,7 @@ export default function GlobalNotFound() {
         <main className={styles.page}>
           <div className={styles.inner}>
             <Link href="/ar" aria-label="Mahu">
-              <Logo color="cream" height={32} eager />
+              <Logo color="cream" height={80} />
             </Link>
             <p className={styles.code} lang="en">
               404
@@ -35,7 +35,7 @@ export default function GlobalNotFound() {
               </Link>
             </div>
           </div>
-          <SceneBand scene="beach" height={16} />
+          <Landscape className={styles.art} />
         </main>
       </body>
     </html>

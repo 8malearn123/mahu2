@@ -1,15 +1,19 @@
+/*
+ * The rebrand's story page ("• قصتنا •"), set on ink: a cream kicker between sunset dots, cream
+ * copy, and the identity's packaging mockups as photo tiles.
+ */
 .section {
-  background: var(--pine-800);
-  color: var(--cream-100);
+  background: var(--surface-ink);
+  color: var(--text-on-ink);
 }
 
 .inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: clamp(48px, 7vw, 96px) clamp(24px, 4vw, 48px);
+  padding: clamp(56px, 8vw, 112px) clamp(24px, 4vw, 48px);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-  gap: clamp(32px, 5vw, 64px);
+  gap: clamp(36px, 5vw, 64px);
   align-items: center;
 }
 
@@ -17,54 +21,81 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
   align-items: flex-start;
 }
 
 .title {
   margin: 0;
+  max-width: 14ch;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(36px, 5vw, 64px);
+  font-size: clamp(40px, 5.4vw, 72px);
   line-height: var(--lh-display-l);
   letter-spacing: var(--track-display);
   text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.title:lang(ar) {
+  font-size: clamp(34px, 4.2vw, 56px);
 }
 
 .body {
   margin: 0;
-  max-width: 44ch;
-  font-size: 18px;
-  line-height: 1.6;
-  color: rgba(255,241,223,.86);
+  max-width: 46ch;
+  font-size: var(--size-body-l);
+  line-height: 1.65;
+  color: var(--cream-a86);
 }
 
+.visit {
+  margin-top: 8px;
+}
+
+/* The cup across the top; the portrait parcel and the carrier underneath, split 3 : 5. */
 .gallery {
   min-width: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  grid-template-columns: 3fr 5fr;
+  gap: 14px;
 }
 
+/* The mockups carry their own warm backdrops, so the tiles need no card colour of their own. */
 .tile {
-  background: var(--white);
+  position: relative;
+  min-width: 0;
+  background: var(--ink-700);
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
 .tileWide {
-  grid-column: span 2;
+  grid-column: 1 / -1;
 }
 
 /* `height: auto` overrides the height attribute next/image adds, so the aspect ratio decides. */
 .image {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
   object-fit: cover;
-  display: block;
 }
 
-.imageWide {
-  aspect-ratio: 8 / 3;
+/* Wide enough to keep the floating cup and its shadow. */
+.imageCup {
+  aspect-ratio: 16 / 10;
+  object-position: 50% 55%;
+}
+
+.imageCarrier {
+  aspect-ratio: 4 / 3;
+  object-position: 40% 50%;
+}
+
+/* next/image `fill` makes it absolute, inset 0, 100% × 100%. Zoomed in on the round sticker. */
+.imageStickers {
+  object-fit: cover;
+  object-position: 50% 48%;
+  transform: scale(1.3);
 }

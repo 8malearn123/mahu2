@@ -5,27 +5,21 @@
   z-index: 40;
 }
 
-/* Desktop nav bar (the design system's NavBar, brand tone) */
+/* Desktop nav bar: ink, like the rebrand's black logo panel */
 
 .desktop {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   gap: var(--space-6);
-  padding: var(--space-4) var(--gutter-screen);
-  background: var(--teal-600);
+  min-height: 64px;
+  padding: var(--space-3) var(--gutter-screen);
+  background: var(--ink-900);
+  transition: box-shadow 200ms var(--ease-standard);
 }
 
-.overlay .desktop {
-  background: transparent;
-  box-shadow: none;
-  transition:
-    background 200ms var(--ease-standard),
-    box-shadow 200ms var(--ease-standard);
-}
-
-.overlay.scrolled .desktop {
-  background: var(--teal-600);
-  box-shadow: var(--shadow-2);
+.scrolled .desktop {
+  box-shadow: var(--shadow-3);
 }
 
 .logoLink {
@@ -41,15 +35,27 @@
 
 .navItem {
   padding: var(--space-2) 0;
-  color: rgba(255, 241, 223, .72);
+  color: var(--cream-a72);
   font: var(--fw-bold) var(--size-body-s)/1 var(--font-body);
   text-transform: uppercase;
   letter-spacing: .14em;
+  transition: color 120ms var(--ease-standard);
 }
 
+.navItem:lang(ar) {
+  font-size: 15px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0;
+}
+
+.navItem:hover {
+  color: var(--cream-100);
+}
+
+/* The active item sits on a short sunset rule. */
 .navItem[aria-current] {
   color: var(--cream-100);
-  box-shadow: inset 0 -2px 0 0 var(--cream-100);
+  background: var(--gradient-sunset-x) left bottom / 100% 2px no-repeat;
 }
 
 .right {
@@ -69,7 +75,7 @@
   padding: 0 16px;
   background: transparent;
   color: var(--cream-100);
-  border: 2px solid rgba(255, 241, 223, .5);
+  border: 2px solid var(--cream-a50);
   border-radius: var(--radius-pill);
   font-size: 13px;
   font-weight: 700;
@@ -82,18 +88,19 @@
 }
 
 .langPill:lang(en) {
-  font-family: var(--font-archivo-narrow), "Arial Narrow", sans-serif;
+  font-family: var(--font-figtree), system-ui, sans-serif;
   letter-spacing: .12em;
 }
 
 .langPill:lang(ar) {
-  font-family: var(--font-tajawal), var(--font-almarai), sans-serif;
-  letter-spacing: .02em;
+  font-family: var(--font-tajawal), var(--font-figtree), sans-serif;
+  font-size: 15px;
+  letter-spacing: 0;
 }
 
 .langPill:hover {
   background: var(--cream-100);
-  color: var(--teal-700);
+  color: var(--ink-900);
   border-color: var(--cream-100);
 }
 
@@ -124,25 +131,18 @@
 }
 
 .mobileBar {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   gap: 12px;
+  min-height: 68px;
   padding: 12px 20px;
-  background: var(--teal-600);
+  background: var(--ink-900);
+  transition: box-shadow 200ms var(--ease-standard);
 }
 
-.overlay .mobileBar {
-  background: transparent;
-  transition: background 200ms var(--ease-standard);
-}
-
-.overlay.scrolled .mobileBar,
-.overlay.open .mobileBar {
-  background: var(--teal-600);
-}
-
-.overlay.scrolled:not(.open) .mobileBar {
-  box-shadow: var(--shadow-2);
+.scrolled:not(.open) .mobileBar {
+  box-shadow: var(--shadow-3);
 }
 
 .mobileLang {
@@ -172,7 +172,7 @@
   flex: 0 0 auto;
   padding: 0;
   background: transparent;
-  border: 2px solid rgba(255, 241, 223, .5);
+  border: 2px solid var(--cream-a50);
   border-radius: var(--radius-pill);
   color: var(--cream-100);
   cursor: pointer;
@@ -187,7 +187,7 @@
   flex-direction: column;
   padding: 8px 20px 28px;
   overflow-y: auto;
-  background: var(--teal-600);
+  background: var(--ink-900);
   color: var(--cream-100);
   animation: fadeIn 200ms var(--ease-standard) both;
 }
@@ -201,7 +201,7 @@
   width: 100%;
   min-height: 60px;
   padding: 0 4px;
-  border-bottom: 1px solid rgba(255, 241, 223, .24);
+  border-bottom: 1px solid var(--border-on-ink);
   color: var(--cream-100);
   font-family: var(--font-display);
   font-weight: 700;
@@ -224,8 +224,8 @@
   margin-top: 24px;
   min-height: 56px;
   padding: 0 28px;
-  background: var(--cream-100);
-  color: var(--teal-700);
+  background: var(--gradient-sunset-x);
+  color: var(--ink-900);
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-weight: 700;
@@ -235,7 +235,7 @@
 }
 
 .menuOrder:hover {
-  color: var(--teal-700);
+  color: var(--ink-900);
 }
 
 /* Pages other than the landing page reserve room for the fixed header. */

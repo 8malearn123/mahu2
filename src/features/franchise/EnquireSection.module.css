@@ -1,5 +1,5 @@
 .section {
-  background: var(--cream-200);
+  background: var(--surface-inset);
 }
 
 .inner {
@@ -40,20 +40,28 @@
   color: var(--text-muted);
 }
 
-/* "Prefer the pack?" box */
+/* "Prefer the pack?": a peach card under a sunset rule. */
 .deck {
+  align-self: stretch;
+  margin-top: 6px;
+  background: var(--orange-100);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.deckText {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 20px 22px;
-  background: var(--sun-200);
-  border-radius: var(--radius-card);
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px 24px 24px;
 }
 
 .deckTitle {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 24px;
+  line-height: 1.1;
   letter-spacing: var(--track-display);
   text-transform: uppercase;
   color: var(--ink-900);
@@ -63,16 +71,37 @@
   margin: 0;
   font-size: 15px;
   line-height: 1.6;
+  color: var(--ink-700);
+}
+
+/*
+ * The address is set large (19px bold) so coral-700 on the peach card counts as large text
+ * (4.1:1, over the 3:1 it needs); the lead-in stays small, in ink.
+ */
+.deckLink {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  margin-top: 4px;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--coral-700);
+}
+
+.deckLink:hover {
   color: var(--ink-900);
 }
 
-.deckLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.deckLinkLabel {
   font-size: 15px;
-  font-weight: 700;
-  color: var(--pine-800);
+  color: var(--ink-900);
+}
+
+.deckEmail {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .formColumn {
@@ -83,8 +112,13 @@
   max-width: 38ch;
 }
 
+/* Sits in the shared success card, so it takes that card's text colour. */
 .sentMail {
   font-size: 15px;
-  color: var(--cream-100);
+  color: inherit;
   text-decoration: underline;
+}
+
+.sentMail:hover {
+  color: inherit;
 }

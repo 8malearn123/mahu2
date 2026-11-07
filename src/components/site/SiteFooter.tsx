@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Logo, SceneBand } from "@/components/ds";
+import { Landscape, Logo, SceneBand } from "@/components/ds";
 import type { Locale } from "@/i18n/config";
 import { common, PHONE_DISPLAY } from "@/i18n/dictionaries/common";
 import { SmartLink } from "./SmartLink";
@@ -18,10 +18,11 @@ export function SiteFooter({ lang, onLanding = false }: SiteFooterProps) {
 
   return (
     <footer className={styles.footer}>
+      <Landscape crop="peaks" color="var(--ink-700)" fit="contain" className={styles.art} />
       <div className={styles.inner}>
         <div className={styles.brand}>
           <SmartLink href={onLanding ? "#top" : home} aria-label="Mahu" className={styles.logoLink}>
-            <Logo color="cream" height={32} />
+            <Logo color="cream" height={88} />
           </SmartLink>
           <p className={styles.tagline}>{t.tagline}</p>
         </div>
@@ -44,7 +45,7 @@ export function SiteFooter({ lang, onLanding = false }: SiteFooterProps) {
           <Link href={`${home}/franchise`} className={styles.link}>{t.franchise}</Link>
         </div>
       </div>
-      <SceneBand scene="beach" height={16} />
+      <SceneBand scene="sunset" height={12} />
     </footer>
   );
 }

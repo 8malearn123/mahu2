@@ -14,14 +14,14 @@
 
 /*
  * Language-dependent type tokens. English uses the design-system defaults; Arabic switches to
- * Tajawal / Almarai with untracked display type and looser line heights. Keying these on [lang]
- * (rather than only on <html>) lets an element such as the language switch carry the other
- * language's type.
+ * Tajawal (headlines and text) with untracked display type and looser line heights. Latin inside
+ * Arabic copy (Māhū, numbers) falls back to Figtree. Keying these on [lang] (rather than only on
+ * <html>) lets an element such as the language switch carry the other language's type.
  */
 :root,
 [lang="en"] {
   --font-display: var(--font-big-shoulders), "Oswald", "Arial Narrow", sans-serif;
-  --font-body: var(--font-archivo-narrow), "Arial Narrow", sans-serif;
+  --font-body: var(--font-figtree), system-ui, sans-serif;
   --track-display: .02em;
   --track-eyebrow: .22em;
   --lh-display-xl: .86;
@@ -31,10 +31,10 @@
 }
 
 [lang="ar"] {
-  --font-display: var(--font-tajawal), var(--font-big-shoulders), sans-serif;
-  --font-body: var(--font-almarai), var(--font-archivo-narrow), sans-serif;
+  --font-display: var(--font-tajawal), var(--font-figtree), sans-serif;
+  --font-body: var(--font-tajawal), var(--font-figtree), sans-serif;
   --track-display: 0em;
-  --track-eyebrow: .08em;
+  --track-eyebrow: .04em;
   --lh-display-xl: 1.12;
   --lh-display-l: 1.15;
   --lh-display-m: 1.2;
@@ -67,12 +67,17 @@
   }
 
   a {
-    color: var(--teal-600);
+    color: var(--text-accent);
     text-decoration: none;
   }
 
   a:hover {
-    color: var(--teal-700);
+    color: var(--coral-600);
+  }
+
+  ::selection {
+    background: var(--orange-100);
+    color: var(--ink-900);
   }
 }
 

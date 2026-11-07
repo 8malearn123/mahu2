@@ -3,7 +3,7 @@ import type { ComponentProps, ReactNode } from "react";
 import { cx } from "@/lib/cx";
 import styles from "./Button.module.css";
 
-export type ButtonVariant = "primary" | "secondary" | "ghost" | "onBrand" | "accent" | "hot";
+export type ButtonVariant = "primary" | "brand" | "secondary" | "ghost" | "onBrand" | "onBrandOutline" | "accent" | "hot";
 export type ButtonSize = "sm" | "md" | "lg";
 
 type OwnProps = {

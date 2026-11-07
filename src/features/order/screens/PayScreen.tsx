@@ -1,3 +1,4 @@
+import { Eyebrow } from "@/components/ds";
 import { cx } from "@/lib/cx";
 import { optionText } from "../copy";
 import type { OrderModel } from "../model";
@@ -10,7 +11,7 @@ export function PayScreen({ model }: { model: OrderModel }) {
   return (
     <div className={ui.stack26}>
       <div className={ui.intro}>
-        <span className={ui.eyebrow}>{t.stepPay}</span>
+        <Eyebrow>{t.stepPay}</Eyebrow>
         <h1 className={ui.title}>{t.payTitle}</h1>
       </div>
       <div className={ui.card}>

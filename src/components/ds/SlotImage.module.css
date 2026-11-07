@@ -9,7 +9,8 @@
     height: 100%;
     aspect-ratio: 3 / 2;
     overflow: hidden;
-    background: rgba(127, 127, 127, .08);
+    /* Shows while the photo loads, and around photos that don't fill the frame. */
+    background: var(--cream-200);
   }
 
   .image {

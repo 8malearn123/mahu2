@@ -11,7 +11,10 @@ type PointsCardProps = {
   t: LandingDictionary["loyalty"]["card"];
 };
 
-/** The sample points card. Its progress bar fills the first time the card is mostly in view. */
+/**
+ * The sample points card, as the brand's membership card. Its progress bar fills the first time the
+ * card is mostly in view.
+ */
 export function PointsCard({ t }: PointsCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
@@ -36,8 +39,9 @@ export function PointsCard({ t }: PointsCardProps) {
 
   return (
     <div ref={cardRef} className={styles.card}>
+      {/* The round sticker's horizon, laid across the top of the card. */}
       <div className={styles.header}>
-        <Logo color="cream" height={22} />
+        <Logo variant="stacked" color="cream" height={64} className={styles.logo} />
         <span className={styles.label}>{t.label}</span>
       </div>
       <div className={styles.body}>

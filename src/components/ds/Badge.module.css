@@ -15,9 +15,16 @@
     letter-spacing: .12em;
   }
 
+  .badge:lang(ar) {
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+
+  /* Tone names are kept from the 2021 system; the colours are the rebrand's. */
   .teal { --badge-bg: var(--teal-050); --badge-fg: var(--teal-700); }
-  .coral { --badge-bg: var(--fire-opal-050); --badge-fg: var(--fire-opal-600); }
-  .sand { --badge-bg: var(--sandy-brown-050); --badge-fg: var(--sandy-brown-600); }
-  .solid { --badge-bg: var(--teal-600); --badge-fg: var(--cream-100); }
+  .coral { --badge-bg: var(--coral-100); --badge-fg: var(--coral-700); }
+  .sand { --badge-bg: var(--orange-100); --badge-fg: var(--orange-800); }
+  .solid { --badge-bg: var(--ink-900); --badge-fg: var(--cream-100); }
   .cream { --badge-bg: var(--cream-200); --badge-fg: var(--ink-700); }
+  .sunset { --badge-bg: var(--gradient-sunset-x); --badge-fg: var(--ink-900); }
 }

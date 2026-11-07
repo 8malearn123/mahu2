@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
-import { SlotImage } from "@/components/ds";
+import { Badge, Button, SlotImage } from "@/components/ds";
 import { LocateIcon, NavigateIcon } from "@/components/icons";
 import { localePath, type Locale } from "@/i18n/config";
 import { common } from "@/i18n/dictionaries/common";
@@ -67,10 +66,9 @@ export function FindUs({ lang, t }: FindUsProps) {
             </h2>
             <span className={styles.count}>{t.count}</span>
           </div>
-          <button type="button" className={styles.locate} onClick={locate}>
-            <LocateIcon size={18} />
+          <Button variant="secondary" size="lg" onClick={locate} iconLeft={<LocateIcon size={18} />}>
             {locateLabel}
-          </button>
+          </Button>
         </div>
 
         <div className={styles.grid}>
@@ -82,7 +80,11 @@ export function FindUs({ lang, t }: FindUsProps) {
               <div key={branch.id} className={cx(styles.card, nearest && styles.cardNearest)}>
                 <div className={styles.photo}>
                   <SlotImage id={`branch-${branch.id}`} alt={copy.name} />
-                  {nearest && <span className={styles.nearestTag}>{t.nearestTag}</span>}
+                  {nearest && (
+                    <Badge tone="sunset" className={styles.nearestTag}>
+                      {t.nearestTag}
+                    </Badge>
+                  )}
                 </div>
                 <div className={styles.cardBody}>
                   <div className={styles.info}>
@@ -106,13 +108,20 @@ export function FindUs({ lang, t }: FindUsProps) {
                     )}
                   </div>
                   <div className={styles.actions}>
-                    <Link href={`${orderPath}?branch=${branch.id}`} className={styles.orderHere}>
+                    <Button variant="primary" size="md" block href={`${orderPath}?branch=${branch.id}`}>
                       {t.orderHere}
-                    </Link>
-                    <a href={directionsUrl(branch)} target="_blank" rel="noopener" className={styles.directions}>
-                      <NavigateIcon size={16} />
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      size="md"
+                      block
+                      href={directionsUrl(branch)}
+                      target="_blank"
+                      rel="noopener"
+                      iconLeft={<NavigateIcon size={16} />}
+                    >
                       {common[lang].directions}
-                    </a>
+                    </Button>
                   </div>
                 </div>
               </div>

@@ -1,16 +1,39 @@
+/*
+ * The deck's cover: the sunset gradient, ink copy, and the cream mountains-to-sea line art sitting
+ * on the bottom edge. The product card rides over the art.
+ */
 .hero {
-  background: var(--teal-600);
-  color: var(--cream-100);
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-sunset);
+  color: var(--text-on-brand);
+}
+
+/*
+ * The cover's line art, full width (it's 428/1366 = 31.3% of the width tall), dropped so the
+ * hero's edge cuts through the swell and only the range and the crests show.
+ */
+.art {
+  position: absolute;
+  inset-inline: 0;
+  bottom: calc(31.3vw * -.32);
 }
 
 .inner {
+  position: relative;
   max-width: 1100px;
   margin: 0 auto;
-  padding: clamp(48px, 7vw, 96px) clamp(24px, 4vw, 48px) clamp(48px, 7vw, 80px);
+  /* Bottom padding keeps the copy clear of the peaks; the card may overlap the waves. */
+  padding: clamp(48px, 6vw, 88px) clamp(24px, 4vw, 48px) calc(31.3vw * .42 + 32px);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: clamp(28px, 4vw, 56px);
   align-items: center;
+}
+
+/* The range's right-hand peaks stand under the Arabic copy: give it a little more air. */
+.inner:lang(ar) {
+  padding-bottom: calc(31.3vw * .56 + 32px);
 }
 
 .copy {
@@ -29,21 +52,22 @@
   line-height: var(--lh-display-xl);
   letter-spacing: var(--track-display);
   text-transform: uppercase;
-  color: var(--cream-100);
+  text-wrap: balance;
 }
 
 .body {
   margin: 0;
-  max-width: 42ch;
-  font-size: 18px;
-  line-height: 1.6;
-  color: rgba(255,241,223,.86);
+  max-width: 40ch;
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.55;
 }
 
 .actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
+  padding-top: 6px;
 }
 
 .registerLabel {
@@ -59,9 +83,11 @@
   justify-content: center;
 }
 
+/* A paper card, as a print on the cover. */
 .card {
   width: 100%;
-  max-width: 420px;
+  max-width: 460px;
+  margin: 0;
   background: var(--cream-100);
   border-radius: var(--radius-card);
   overflow: hidden;
@@ -71,29 +97,45 @@
 .image {
   width: 100%;
   height: auto;
-  max-height: 320px;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   display: block;
 }
 
 .caption {
-  padding: 16px 20px;
+  padding: 16px 20px 18px;
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
+  gap: 4px 12px;
 }
 
 .captionLine {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 22px;
+  line-height: 1.1;
   letter-spacing: var(--track-display);
   text-transform: uppercase;
-  color: var(--pine-800);
+  color: var(--ink-900);
 }
 
 .captionSub {
-  font-size: 13px;
-  color: var(--ink-700);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Phones: the art is drawn wider than the screen (bleeding both sides) so the range keeps its size. */
+@media (width < 700px) {
+  .art {
+    inset-inline: -40% auto;
+    width: 180%;
+    bottom: calc(1.8 * 31.3vw * -.3);
+  }
+
+  .inner,
+  .inner:lang(ar) {
+    padding-bottom: calc(1.8 * 31.3vw * .42 + 24px);
+  }
 }

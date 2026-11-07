@@ -1,37 +1,60 @@
 /* Pieces shared by the job application and the franchise enquiry forms. */
 
-/* The white form card. */
+/* The form card: a sheet of cream paper with the sunset bar along its top edge. */
 .card {
+  --card-pad: clamp(20px, 3vw, 28px);
+  --card-bar: 6px;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding: clamp(20px, 3vw, 28px);
-  background: var(--white);
-  border: 1px solid var(--border-hairline);
+  padding: var(--card-pad);
+  padding-top: calc(var(--card-pad) + var(--card-bar));
+  background: var(--surface-page);
+  border: var(--border-width) solid var(--border-hairline);
+  border-top: none;
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-1);
+  overflow: hidden;
 }
 
-/* "+966" box beside the mobile number input. */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--card-bar);
+  background: var(--gradient-sunset-x);
+}
+
+/* The mobile number: its label, then a fixed "+966" box beside the input. */
+.phoneField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
 .phoneRow {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 10px;
   width: 100%;
 }
 
+/* Not editable, so it reads as a printed tab rather than a field: inset cream, no white. */
 .countryCode {
   flex: 0 0 auto;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   height: 48px;
-  padding: 0 16px;
+  padding: 0 var(--space-4);
   background: var(--surface-inset);
-  border: 2px solid var(--border-hairline);
+  border: var(--border-width) solid var(--ink-300);
   border-radius: var(--radius-sm);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink-700);
+  font: var(--fw-bold) var(--size-body)/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-body);
   white-space: nowrap;
 }
 
@@ -42,8 +65,20 @@
 
 /* Form-level error line (consent, and on the jobs form the role). */
 .formError {
-  font-size: 14px;
-  color: var(--fire-opal-500);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font: var(--fw-medium) var(--size-body-s)/1.45 var(--font-body);
+  color: var(--state-error);
+}
+
+.formError::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
 }
 
 .fine {
@@ -60,17 +95,42 @@
   white-space: nowrap;
 }
 
-/* Confirmation card that replaces the form once it is sent. */
+/*
+ * Confirmation card that replaces the form once it is sent: an ink card (the identity's dark
+ * moment) under the sunset bar, a sunset disc with an ink tick, and the cover's line art in ink-700.
+ */
 .success {
+  --card-pad: clamp(24px, 4vw, 36px);
+  --card-bar: 8px;
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: clamp(24px, 4vw, 36px);
-  background: var(--teal-600);
-  color: var(--cream-100);
+  padding: var(--card-pad);
+  padding-top: calc(var(--card-pad) + var(--card-bar));
+  background: var(--surface-ink);
+  color: var(--text-on-ink);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-2);
+  overflow: hidden;
   animation: mahuFade 300ms var(--ease-standard) both;
+}
+
+.success::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--card-bar);
+  background: var(--gradient-sunset-x);
+}
+
+.successArt {
+  position: absolute;
+  z-index: -1;
+  inset-inline-end: -8%;
+  bottom: -2px;
+  width: min(520px, 78%);
 }
 
 .successIcon {
@@ -79,15 +139,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
-  background: var(--sun-200);
-  color: var(--pine-800);
+  border-radius: var(--radius-pill);
+  background: var(--gradient-sunset);
+  color: var(--ink-900);
 }
 
 .successTitle {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   font-size: clamp(28px, 3.4vw, 40px);
   line-height: var(--lh-display-m);
   letter-spacing: var(--track-display);
@@ -100,7 +160,7 @@
   margin: 0;
   font-size: 17px;
   line-height: 1.6;
-  color: rgba(255,241,223,.88);
+  color: var(--cream-a86);
 }
 
 .receipt {
@@ -108,7 +168,8 @@
   flex-wrap: wrap;
   gap: 10px 24px;
   padding: 16px 18px;
-  background: rgba(255,241,223,.1);
+  background: var(--ink-700);
+  border: var(--border-width) solid var(--border-on-ink);
   border-radius: var(--radius-card);
 }
 
@@ -120,14 +181,19 @@
 
 .receiptLabel {
   font-size: 12px;
+  font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
-  color: rgba(255,241,223,.72);
+  color: var(--orange-500);
+}
+
+.receiptLabel:lang(ar) {
+  font-size: var(--size-body-s);
 }
 
 .reference {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   font-size: 22px;
   letter-spacing: .06em;
   color: var(--cream-100);
@@ -135,7 +201,7 @@
 
 .receiptValue {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   color: var(--cream-100);
 }
 

@@ -16,7 +16,7 @@ export function LifeSection({ lang }: { lang: Locale }) {
           <div className={styles.ticket}>
             <div className={styles.ticketBody}>
               <div className={styles.ticketHead}>
-                <Logo color="teal" height={22} />
+                <Logo color="ink" height={46} className={styles.ticketLogo} />
                 <span className={styles.shiftHead}>{t.shiftHead}</span>
                 <span className={styles.shiftSub}>{t.shiftSub}</span>
               </div>
@@ -24,7 +24,8 @@ export function LifeSection({ lang }: { lang: Locale }) {
               <div className={styles.rows}>
                 {t.shiftRows.map((row) => (
                   <div key={row.time} className={styles.row}>
-                    <span className={styles.time} dir="ltr">
+                    {/* auto: "5:40 AM" runs left to right, "5:40 ص" right to left (time, then ص). */}
+                    <span className={styles.time} dir="auto">
                       {row.time}
                     </span>
                     <span className={styles.what}>{row.what}</span>
@@ -36,7 +37,7 @@ export function LifeSection({ lang }: { lang: Locale }) {
                 {t.shiftTally.map((row) => (
                   <div key={row.label} className={styles.tallyRow}>
                     <span className={styles.tallyLabel}>{row.label}</span>
-                    <span className={styles.tallyValue} dir="ltr">
+                    <span className={styles.tallyValue} dir="auto">
                       {row.value}
                     </span>
                   </div>
@@ -59,7 +60,7 @@ export function LifeSection({ lang }: { lang: Locale }) {
                 <SlotImage id="jobs-cup-handoff" alt={t.handoffSlot} />
               </div>
             </div>
-            <SceneBand scene="beach" height={14} />
+            <SceneBand scene="sunset" height={14} />
           </div>
         </div>
       </div>

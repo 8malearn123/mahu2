@@ -1,40 +1,46 @@
 import Image from "next/image";
-import bag from "@/assets/brand/mockup-bag.png";
-import box from "@/assets/brand/mockup-box.png";
-import stamp from "@/assets/brand/mockup-stamp.png";
-import { Button } from "@/components/ds";
+import carrier from "@/assets/brand/carrier-pour.webp";
+import cup from "@/assets/brand/cup-gradient.webp";
+import stickers from "@/assets/brand/stickers.webp";
+import { Button, Eyebrow } from "@/components/ds";
 import type { Locale } from "@/i18n/config";
 import { landing } from "@/i18n/dictionaries/landing";
 import { cx } from "@/lib/cx";
 import styles from "./Story.module.css";
 
-// Rendered widths: two columns from ~700px (the gallery is one of them, at most 518px wide in
-// the 1100px container), one column below that.
+// Rendered widths: two columns from ~700px, where the gallery is one of them (518px in the
+// 1100px container, ~43.5vw below it); one full-width column under that. The lower row splits
+// the gallery 3 : 5 between the portrait stickers tile and the carrier tile; the stickers image
+// is drawn at 1.3× inside its tile (see .imageStickers), hence its larger sizes.
 const WIDE_SIZES = "(min-width: 1200px) 518px, (min-width: 700px) 44vw, 100vw";
-const HALF_SIZES = "(min-width: 1200px) 251px, (min-width: 700px) 21vw, 50vw";
+const NARROW_SIZES = "(min-width: 1200px) 246px, (min-width: 700px) 21vw, 50vw";
+const MID_SIZES = "(min-width: 1200px) 315px, (min-width: 700px) 27vw, 62vw";
 
+/** The rebrand's "• قصتنا •" page, set on ink, beside the identity's packaging mockups. */
 export function Story({ lang }: { lang: Locale }) {
   const t = landing[lang].story;
   return (
     <section id="story" className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.copy}>
+          <Eyebrow tone="cream">{t.eyebrow}</Eyebrow>
           <h2 className={styles.title}>{t.title}</h2>
           <p className={styles.body}>{t.body1}</p>
           <p className={styles.body}>{t.body2}</p>
-          <Button variant="onBrand" size="md" href="#find">
+          <Button variant="onBrand" size="md" href="#find" className={styles.visit}>
             {t.visit}
           </Button>
         </div>
         <div className={styles.gallery}>
           <div className={cx(styles.tile, styles.tileWide)}>
-            <Image src={bag} alt={t.alt.bag} sizes={WIDE_SIZES} className={cx(styles.image, styles.imageWide)} />
+            <Image src={cup} alt={t.alt.cup} sizes={WIDE_SIZES} className={cx(styles.image, styles.imageCup)} />
           </div>
           <div className={styles.tile}>
-            <Image src={stamp} alt={t.alt.stamp} sizes={HALF_SIZES} className={styles.image} />
+            {/* Fills whatever height the carrier tile gives the row, so it stays out of the row's sizing. */}
+            <Image src={stickers} alt={t.alt.stickers} fill sizes={NARROW_SIZES} className={styles.imageStickers} />
           </div>
           <div className={styles.tile}>
-            <Image src={box} alt={t.alt.box} sizes={HALF_SIZES} className={styles.image} />
+            <Image src={carrier} alt={t.alt.carrier} sizes={MID_SIZES} className={cx(styles.image, styles.imageCarrier)} />
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ export function Input({ label, hint, error, iconLeft, className, id, type = "tex
           {label}
         </label>
       )}
-      <div className={cx(styles.box, disabled && styles.disabled, error && styles.invalid)}>
+      <div className={cx(field.control, styles.box, disabled && field.controlDisabled, error && field.controlInvalid)}>
         {iconLeft && <span className={styles.icon}>{iconLeft}</span>}
         <input
           {...rest}

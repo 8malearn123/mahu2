@@ -81,6 +81,30 @@
   }
 }
 
+/* The lobby's easing: a quick start that settles slowly. */
+:root {
+  --ease-lobby: cubic-bezier(.22, .7, .1, 1);
+}
+
+/* The lobby has no fixed header to clear, and sits on ink all the way to the edges. */
+html:has([data-lobby]) {
+  scroll-padding-top: 0;
+}
+
+body:has([data-lobby]) {
+  background: var(--ink-900);
+}
+
+/* Pages cross-fade into one another: the lobby into a section and back. */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: .5s;
+}
+
 /* Arrows that point "forward" mirror in right-to-left layouts. */
 [dir="rtl"] .flip-rtl {
   transform: scaleX(-1);
@@ -89,5 +113,9 @@
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
+  }
+
+  @view-transition {
+    navigation: none;
   }
 }

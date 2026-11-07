@@ -1,6 +1,6 @@
 /*
- * The rebrand's story page ("• قصتنا •"), set on ink: a cream kicker between sunset dots, cream
- * copy, and the identity's packaging mockups as photo tiles.
+ * "من جازان", set on ink: a short sunset rule over the title, cream copy, and the identity's
+ * packaging mockups as photo tiles.
  */
 .section {
   background: var(--surface-ink);
@@ -25,6 +25,14 @@
   align-items: flex-start;
 }
 
+/* The short line that opens the section. */
+.rule {
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gradient-sunset-x);
+}
+
 .title {
   margin: 0;
   max-width: 14ch;
@@ -47,10 +55,6 @@
   font-size: var(--size-body-l);
   line-height: 1.65;
   color: var(--cream-a86);
-}
-
-.visit {
-  margin-top: 8px;
 }
 
 /* The cup across the top; the portrait parcel and the carrier underneath, split 3 : 5. */

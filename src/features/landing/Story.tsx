@@ -2,7 +2,6 @@ import Image from "next/image";
 import carrier from "@/assets/brand/carrier-pour.webp";
 import cup from "@/assets/brand/cup-gradient.webp";
 import stickers from "@/assets/brand/stickers.webp";
-import { Button, Eyebrow } from "@/components/ds";
 import type { Locale } from "@/i18n/config";
 import { landing } from "@/i18n/dictionaries/landing";
 import { cx } from "@/lib/cx";
@@ -16,20 +15,16 @@ const WIDE_SIZES = "(min-width: 1200px) 518px, (min-width: 700px) 44vw, 100vw";
 const NARROW_SIZES = "(min-width: 1200px) 246px, (min-width: 700px) 21vw, 50vw";
 const MID_SIZES = "(min-width: 1200px) 315px, (min-width: 700px) 27vw, 62vw";
 
-/** The rebrand's "• قصتنا •" page, set on ink, beside the identity's packaging mockups. */
+/** "من جازان": where the identity comes from, set on ink beside the packaging mockups. The hero's "Learn more" lands here. */
 export function Story({ lang }: { lang: Locale }) {
   const t = landing[lang].story;
   return (
     <section id="story" className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.copy}>
-          <Eyebrow tone="cream">{t.eyebrow}</Eyebrow>
+          <span aria-hidden="true" className={styles.rule} />
           <h2 className={styles.title}>{t.title}</h2>
-          <p className={styles.body}>{t.body1}</p>
-          <p className={styles.body}>{t.body2}</p>
-          <Button variant="onBrand" size="md" href="#find" className={styles.visit}>
-            {t.visit}
-          </Button>
+          <p className={styles.body}>{t.body}</p>
         </div>
         <div className={styles.gallery}>
           <div className={cx(styles.tile, styles.tileWide)}>

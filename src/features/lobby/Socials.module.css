@@ -1,0 +1,38 @@
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--cream-100);
+  color: var(--ink-900);
+  box-shadow: 0 8px 24px -10px rgb(0 0 0 / .6);
+  transition: background-color .3s, translate .3s, color .3s;
+}
+
+a.button:hover {
+  translate: 0 -2px;
+  background: var(--orange-500);
+  color: var(--ink-900);
+}
+
+a.button:focus-visible {
+  outline: 2px solid var(--orange-500);
+  outline-offset: 3px;
+}
+
+.icon {
+  width: 19px;
+  height: 19px;
+}

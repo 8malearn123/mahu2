@@ -44,36 +44,33 @@
   margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: var(--size-hero);
+  /* Sized so each of the two lines ("to take you to Hawaii", «قهوة مختصة توديك») holds as one line. */
+  font-size: clamp(34px, min(5.4vw, 10svh), 62px);
   line-height: var(--lh-display-xl);
   letter-spacing: var(--track-display);
   text-transform: uppercase;
   text-wrap: balance;
 }
 
-.body {
-  margin: 0;
-  max-width: 40ch;
-  font-size: clamp(16px, 1.35vw, 19px);
-  line-height: 1.55;
+.title:lang(ar) {
+  font-size: clamp(30px, min(4.8vw, 9svh), 54px);
 }
 
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  padding-top: 6px;
+/* The stacked lockup (ماهو over MāHū) in ink, leading the cover. Width follows the artwork. */
+.logo {
+  height: clamp(72px, 8vw, 112px);
+  width: auto;
+  margin-bottom: 6px;
 }
 
-.orderLabel {
+.more {
+  margin-top: 6px;
+}
+
+.moreLabel {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  white-space: nowrap;
-}
-
-.findButton {
   white-space: nowrap;
 }
 
@@ -104,8 +101,16 @@
     max-height: 62svh;
   }
 
+  .title {
+    font-size: clamp(32px, 10vw, 56px);
+  }
+
+  .title:lang(ar) {
+    font-size: clamp(30px, 8.5vw, 48px);
+  }
+
   .copyPanel {
-    padding-block: 40px calc(31.3vw * .55 + 24px);
+    padding-block: 40px calc(31.3vw * .55 + 44px);
     padding-inline: 24px;
   }
 }

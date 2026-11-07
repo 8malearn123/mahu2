@@ -1,0 +1,41 @@
+.chevron {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  opacity: .6;
+  transition: rotate .5s var(--ease-lobby);
+}
+
+.chevronOpen {
+  rotate: 180deg;
+}
+
+/* Opens to its content's height: the grid row grows from 0fr to 1fr. */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows .5s var(--ease-lobby),
+    opacity .5s var(--ease-lobby);
+}
+
+.panelOpen {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  margin: 0;
+  padding: 0 16px;
+  overflow: hidden;
+  list-style: none;
+}
+
+.first {
+  padding-top: 8px;
+}

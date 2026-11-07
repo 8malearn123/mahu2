@@ -7,14 +7,15 @@ import styles from "./SiteFooter.module.css";
 
 type SiteFooterProps = {
   lang: Locale;
-  /** On the landing page, links to its sections stay in-page. */
+  /** On the whole landing page (/journey), links to its sections stay in-page. */
   onLanding?: boolean;
 };
 
 export function SiteFooter({ lang, onLanding = false }: SiteFooterProps) {
   const t = common[lang].footer;
   const home = `/${lang}`;
-  const section = (id: string) => (onLanding ? `#${id}` : `${home}#${id}`);
+  // Elsewhere they open the section's own page.
+  const section = (id: "menu" | "find") => (onLanding ? `#${id}` : id === "menu" ? `${home}/menu` : `${home}/branches`);
 
   return (
     <footer className={styles.footer}>

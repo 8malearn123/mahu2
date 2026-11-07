@@ -11,7 +11,8 @@ import { LanguageSwitch } from "./LanguageSwitch";
 import { SmartLink as NavLink } from "./SmartLink";
 import styles from "./SiteHeader.module.css";
 
-type Page = "landing" | "jobs" | "franchise";
+/** "landing" is the whole landing page in one scroll (/journey); menu, branches and points are its sections on pages of their own. */
+type Page = "landing" | "jobs" | "franchise" | "menu" | "branches" | "points";
 type NavKey = "menu" | "find" | "jobs" | "franchise";
 
 function subscribeScroll(onChange: () => void) {
@@ -29,9 +30,9 @@ function navHref(key: NavKey, page: Page, lang: Locale): string {
   const home = `/${lang}`;
   switch (key) {
     case "menu":
-      return page === "landing" ? "#menu" : `${home}#menu`;
+      return page === "landing" || page === "menu" ? "#menu" : `${home}/menu`;
     case "find":
-      return page === "landing" ? "#find" : `${home}#find`;
+      return page === "landing" || page === "branches" ? "#find" : `${home}/branches`;
     case "jobs":
       return page === "jobs" ? "#roles" : `${home}/jobs`;
     case "franchise":
@@ -58,8 +59,14 @@ export function SiteHeader({ lang, page }: SiteHeaderProps) {
 
   const keys: NavKey[] = ["menu", "find", "jobs", "franchise"];
   const items = keys.map((key) => ({ key, label: t.nav[key], href: navHref(key, page, lang) }));
-  const active: NavKey =
-    page === "landing" ? (keys.find((key) => hash === `#${key}`) ?? "menu") : page;
+  const active: NavKey | undefined =
+    page === "landing"
+      ? (keys.find((key) => hash === `#${key}`) ?? "menu")
+      : page === "branches"
+        ? "find"
+        : page === "points"
+          ? undefined
+          : page;
   const logoHref = onLanding ? "#top" : `/${lang}`;
   const orderHref = `/${lang}/order`;
 

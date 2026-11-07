@@ -22,10 +22,10 @@ export function LandingPage({ lang, showLimited = true }: LandingPageProps) {
     <div className={styles.page}>
       <SiteHeader lang={lang} page="landing" />
       <Hero lang={lang} />
+      <Story lang={lang} />
       <HowItWorks lang={lang} />
       <MenuSection lang={lang} showLimited={showLimited} />
       <Loyalty lang={lang} />
-      <Story lang={lang} />
       <FindUs lang={lang} t={landing[lang].find} />
       <OrderCta lang={lang} />
       <SiteFooter lang={lang} onLanding />

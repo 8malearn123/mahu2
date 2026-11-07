@@ -1,0 +1,328 @@
+/*
+ * The lobby: ink under a fixed photo, cream type. `--p` (0 → 1 across the intro, set by
+ * LobbyMotion) steps the intro back and softens the picture as the list rises.
+ */
+.lobby {
+  position: relative;
+  min-height: 100svh;
+  background: var(--ink-900);
+  color: var(--cream-100);
+  font-family: var(--font-body);
+}
+
+/* The project has no global border-box; the lobby's full-height and full-width boxes need it. */
+.lobby,
+.lobby *,
+.lobby *::before,
+.lobby *::after {
+  box-sizing: border-box;
+}
+
+.skip {
+  position: fixed;
+  top: 16px;
+  inset-inline-start: 16px;
+  z-index: 120;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--orange-500);
+  color: var(--ink-900);
+  translate: 0 -200%;
+}
+
+.skip:focus-visible {
+  translate: 0 0;
+  outline: 2px solid var(--cream-100);
+}
+
+.main {
+  position: relative;
+}
+
+/* ─── The intro ─────────────────────────────────────────── */
+
+.intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 72px 24px 88px;
+  text-align: center;
+}
+
+.introContent,
+.sinceRow {
+  translate: 0 calc(var(--p, 0) * -16%);
+  scale: calc(1 - var(--p, 0) * .06);
+  opacity: clamp(0, calc(1 - var(--p, 0) * 1.34), 1);
+}
+
+.introContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The stacked lockup, glowing faintly as if lit by the sun behind it. */
+.logo {
+  height: clamp(110px, 20svh, 180px);
+  width: auto;
+  filter: drop-shadow(0 0 28px rgb(239 150 74 / .35));
+}
+
+.tagline {
+  margin: 32px 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  line-height: 1.3;
+  color: var(--cream-100);
+  text-shadow: 0 6px 40px rgb(0 0 0 / .55);
+}
+
+.tagline:lang(en) {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: .95;
+  letter-spacing: var(--track-display);
+  text-transform: uppercase;
+}
+
+.enter {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  margin-top: 40px;
+  padding: 0 32px;
+  border: 1px solid rgb(239 150 74 / .45);
+  border-radius: 999px;
+  background: rgb(13 13 13 / .45);
+  color: var(--cream-100);
+  font-size: 1.02rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color .3s, border-color .3s, color .3s;
+}
+
+.enter:hover {
+  border-color: var(--orange-500);
+  background: var(--orange-500);
+  color: var(--ink-900);
+}
+
+.enter:focus-visible {
+  outline: 2px solid var(--orange-500);
+  outline-offset: 3px;
+}
+
+.enterIcon {
+  width: 16px;
+  height: 16px;
+  color: var(--orange-500);
+  transition: color .3s;
+}
+
+.enter:hover .enterIcon {
+  color: var(--ink-900);
+}
+
+.introSocials {
+  margin-top: 28px;
+}
+
+.sinceRow {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 0 24px max(1.25rem, 3svh);
+}
+
+.since {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: rgb(255 243 225 / .55);
+}
+
+.since:lang(en) {
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+/* The language, in a round button at the top corner (see LobbyLangSwitch). */
+.langSwitch {
+  position: fixed;
+  top: 20px;
+  inset-inline-end: 20px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgb(255 243 225 / .25);
+  border-radius: 50%;
+  background: rgb(13 13 13 / .35);
+  color: var(--cream-100);
+  font-size: 14px;
+  font-weight: var(--fw-medium);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition:
+    translate .7s var(--ease-lobby),
+    opacity .7s var(--ease-lobby),
+    color .3s,
+    border-color .3s;
+}
+
+.langSwitch:hover {
+  border-color: var(--orange-500);
+  color: var(--orange-500);
+}
+
+.langSwitch:focus-visible {
+  outline: 2px solid var(--orange-500);
+  outline-offset: 3px;
+}
+
+.langSwitch[data-hidden="true"] {
+  translate: 0 -80px;
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  .langSwitch {
+    inset-inline-end: 40px;
+  }
+}
+
+/* ─── The list ──────────────────────────────────────────── */
+
+.hub {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100svh;
+  padding: 0 20px 56px;
+}
+
+.body {
+  max-width: 26rem;
+  margin: 40px 0 0;
+  font-size: 1.08rem;
+  line-height: 1.95;
+  text-align: center;
+  text-wrap: pretty;
+  color: rgb(255 243 225 / .88);
+  text-shadow: 0 2px 18px rgb(0 0 0 / .6);
+}
+
+.nav {
+  width: 100%;
+  max-width: 25rem;
+  margin-top: 40px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.homeRow {
+  width: 100%;
+  max-width: 25rem;
+  margin-top: 12px;
+}
+
+.homeLink {
+  justify-content: center;
+  gap: 10px;
+}
+
+.hubSocials {
+  margin-top: 40px;
+}
+
+.footnote {
+  margin: 32px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+  color: rgb(255 243 225 / .45);
+}
+
+/* ─── Motion ────────────────────────────────────────────── */
+
+/* The intro arrives on its own clock, before any script runs; `--d` staggers it. */
+.rise {
+  animation: lobby-rise 1.3s var(--ease-lobby) var(--d, 0s) both;
+}
+
+/* The logo lights up like a sign switching on. */
+.on {
+  animation: lobby-on 1.2s linear var(--d, 0s) both;
+}
+
+/* Once LobbyMotion is running, rows wait below and rise as they scroll in. */
+.lobby [data-reveal] {
+  transition:
+    opacity .9s var(--ease-lobby),
+    translate .9s var(--ease-lobby);
+}
+
+.lobby[data-motion="on"] [data-reveal]:not([data-shown]) {
+  opacity: 0;
+  translate: 0 28px;
+}
+
+.lobby[data-motion="on"] [data-sign]:not([data-shown]) {
+  opacity: 0;
+}
+
+.lobby[data-motion="on"] [data-sign][data-shown] {
+  animation: sign-in 2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .introContent,
+  .sinceRow {
+    translate: none;
+    scale: none;
+    opacity: 1;
+  }
+}
+
+@keyframes lobby-rise {
+  from {
+    opacity: 0;
+    translate: 0 26px;
+  }
+}
+
+@keyframes lobby-on {
+  0% { opacity: 0; }
+  20% { opacity: .5; }
+  32% { opacity: .1; }
+  50% { opacity: .85; }
+  64% { opacity: .35; }
+  100% { opacity: 1; }
+}
+
+/* Swung in from the ceiling, settling like a board on two ropes. */
+@keyframes sign-in {
+  0% { opacity: 0; rotate: -9deg; translate: 0 -35%; animation-timing-function: cubic-bezier(.3, .6, .4, 1); }
+  22% { opacity: 1; }
+  34% { rotate: 5deg; translate: 0 0; }
+  50% { rotate: -3deg; }
+  66% { rotate: 1.6deg; }
+  82% { rotate: -.7deg; }
+  100% { opacity: 1; rotate: 0deg; translate: 0 0; }
+}

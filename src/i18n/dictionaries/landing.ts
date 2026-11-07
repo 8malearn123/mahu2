@@ -9,11 +9,9 @@ const en = {
     description: "Order ahead, swing by your nearest window, and pick up your coffee while it's ready for you.",
   },
   hero: {
-    eyebrow: "Jazan, from the mountains to the sea",
-    titleA: "Your coffee,",
-    titleB: "your way.",
-    body: "Order ahead, swing by your nearest window, and pick up your coffee while it's ready for you.",
-    findWindow: "Find a window",
+    titleA: "Specialized coffee",
+    titleB: "to take you to Hawaii",
+    learnMore: "Learn more",
     imageAlt: "A coastline at dusk — mountains, sea and leaves in the foreground — with the Māhū wordmark",
   },
   how: {
@@ -67,11 +65,8 @@ const en = {
     },
   },
   story: {
-    eyebrow: "Our story",
-    title: "Your moment starts at Māhū",
-    body1: "Our story began in the heart of Jazan, and so did our passion: serving coffee in the belief that every cup is part of an experience, and every detail carries the care we put into Mahu.",
-    body2: "Mahu's identity draws on the magic of the Hawaiian islands and the warmth of their tropical nature, in harmony with Jazan's beauty, its natural variety and its singular spirit. From that kinship came an identity with a sense of place, calm in its details and warm in its welcome — so every moment with Mahu feels closer to a journey, lived one cup at a time.",
-    visit: "Visit the window",
+    title: "From Jazan",
+    body: "Mahu's identity draws on the Hawaiian islands and the warmth of their tropical nature, in harmony with Jazan's beauty, its natural variety and its singular spirit. From that kinship came an identity with a sense of place and calm in its details, so every moment with Mahu becomes a journey, lived in every cup.",
     alt: {
       cup: "A Mahu cup in the orange-to-coral sunset gradient",
       stickers: "A parcel wrapped in Mahu paper, sealed with the round sticker",
@@ -102,11 +97,9 @@ const ar: LandingDictionary = {
     description: "اطلبها مسبقًا، مرّ من أقرب نقطة، وخذ قهوتك وهي جاهزة لك.",
   },
   hero: {
-    eyebrow: "جازان من جبالها إلى بحرها",
-    titleA: "قهوتك،",
-    titleB: "على طريقك.",
-    body: "اطلبها مسبقًا، مرّ من أقرب نقطة، وخذ قهوتك وهي جاهزة لك.",
-    findWindow: "وين الشباك؟",
+    titleA: "قهوة مختصة توديك",
+    titleB: "على هاواي",
+    learnMore: "تعرف أكثر",
     imageAlt: "ساحل عند الغروب بين الجبال والبحر، وأوراق خضراء في المقدمة، وشعار ماهو في المنتصف",
   },
   how: {
@@ -160,11 +153,8 @@ const ar: LandingDictionary = {
     },
   },
   story: {
-    eyebrow: "قصتنا",
-    title: "لحظتك تبدأ من ماهو",
-    body1: "من قلب جازان بدأت حكايتنا، ومنها وُلد شغفنا بتقديم القهوة بروح تؤمن بأن كل كوب هو امتداد لتجربة، وتفصيل يجسّد الشغف الذي نصنعه في ماهو.",
-    body2: "بُنيت هوية ماهو بطابع يستلهم سحر جزر هاواي ودفء طبيعتها الاستوائية، في تناغم يلتقي مع جمال جازان وتنوعها الطبيعي وروحها الفريدة. ومن هذا التشابه وُلدت هوية تحمل الإحساس بالمكان، وهدوء التفاصيل، ودفء التجربة؛ لتصبح كل لحظة مع ماهو أقرب إلى رحلة تُعاش مع كل كوب.",
-    visit: "زورونا عند الشباك",
+    title: "من جازان",
+    body: "بُنيت هوية \"ماهو\" بطابع يستلهم جزر هاواي ودفء طبيعتها الاستوائية في تناغم يلتقي مع جمال جازان وتنوعها الطبيعي وروحها الفريدة ومن هذا التشابه ولدت هوية تحمل الإحساس بالمكان وهدوء التفاصيل لتصبح كل لحظة مع ماهو رحلة تُعاش في كل كوب.",
     alt: {
       cup: "كوب ماهو بتدرّج الغروب من البرتقالي إلى المرجاني",
       stickers: "طرد مغلّف بورق ماهو ومختوم بالملصق الدائري",

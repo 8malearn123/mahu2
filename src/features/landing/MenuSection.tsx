@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Badge, Button, SlotImage } from "@/components/ds";
 import { ArrowIcon } from "@/components/icons";
 import { localePath, type Locale } from "@/i18n/config";
@@ -74,10 +73,10 @@ export function MenuSection({ lang, showLimited }: MenuSectionProps) {
                 <span className={styles.dropTitle}>{t.dropTitle}</span>
                 <span className={styles.dropBody}>{t.dropBody}</span>
               </div>
-              <Link href={`${orderPath}?add=${LIMITED_DROP.id}`} className={styles.dropButton}>
+              <Button variant="primary" size="lg" href={`${orderPath}?add=${LIMITED_DROP.id}`} className={styles.dropButton}>
                 {t.add}
                 <ArrowIcon size={18} />
-              </Link>
+              </Button>
             </div>
           </div>
         )}

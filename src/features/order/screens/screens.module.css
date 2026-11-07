@@ -46,11 +46,17 @@
   gap: 10px;
 }
 
+/* Small coral kicker inside white photo cards ("Size and milk", "One in three cups…"). */
 .eyebrow {
   font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
-  color: var(--teal-600);
+  color: var(--coral-700);
+}
+
+.eyebrow:lang(ar) {
+  font-size: 13px;
 }
 
 .title {
@@ -120,15 +126,14 @@
   margin-inline-start: 5px;
 }
 
-/* Cards */
+/* Cards: summaries and receipts are inset paper panels (white is kept for product photos). */
 
 .card {
   display: flex;
   flex-direction: column;
   gap: 2px;
   padding: 20px 22px;
-  background: var(--white);
-  border: 1px solid var(--border-hairline);
+  background: var(--surface-inset);
   border-radius: var(--radius-card);
 }
 
@@ -141,17 +146,20 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px 16px;
-  background: var(--teal-050);
 }
 
+/* Inside the inset summary card: a paper chip with a hairline. */
 .windowInCard {
   margin-bottom: 14px;
   padding: 14px 16px;
+  background: var(--cream-100);
+  border: 1px solid var(--cream-300);
   border-radius: var(--radius-sm);
 }
 
 .windowCard {
   padding: 16px 18px;
+  background: var(--surface-inset);
   border-radius: var(--radius-card);
 }
 
@@ -164,9 +172,10 @@
 
 .windowLabel {
   font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
-  color: var(--teal-700);
+  color: var(--ink-500);
 }
 
 .windowName {
@@ -190,12 +199,13 @@
   border-radius: 50%;
 }
 
+/* "Open now" is one of the few places teal (the sea) speaks. */
 .dotOpen {
-  background: var(--teal-400);
+  background: var(--teal-600);
 }
 
 .dotClosed {
-  background: var(--fire-opal-500);
+  background: var(--coral-500);
 }
 
 /* Outline pill buttons ("Change", "Edit") */
@@ -204,8 +214,8 @@
   min-height: 38px;
   padding: 0 16px;
   background: transparent;
-  border: 2px solid var(--teal-600);
-  color: var(--teal-700);
+  border: 2px solid var(--ink-900);
+  color: var(--ink-900);
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-weight: 700;
@@ -213,6 +223,25 @@
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
   cursor: pointer;
+  transition:
+    background 120ms var(--ease-standard),
+    color 120ms var(--ease-standard);
+}
+
+.pill:lang(ar) {
+  font-size: 14px;
+}
+
+.pill:hover {
+  background: var(--ink-900);
+  color: var(--cream-100);
+}
+
+.pill:focus-visible,
+.textButton:focus-visible,
+.directions:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 .pillFixed {
@@ -254,12 +283,12 @@
 .subtotalRow {
   margin-top: 8px;
   padding-top: 10px;
-  border-top: 1px solid var(--border-inset);
+  border-top: 1px solid var(--cream-300);
 }
 
 .rewardRow {
   padding: 10px 12px;
-  background: var(--teal-050);
+  background: var(--orange-100);
   border-radius: var(--radius-sm);
 }
 
@@ -274,7 +303,7 @@
 .rewardText {
   font-size: 15px;
   font-weight: 700;
-  color: var(--teal-700);
+  color: var(--orange-800);
 }
 
 .rewardCheck {
@@ -320,15 +349,19 @@
   gap: 10px;
 }
 
+/* The same +966 box as the forms' country code (forms.module.css .countryCode). */
 .prefix {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  min-height: 48px;
-  padding: 0 16px;
+  height: 48px;
+  padding: 0 var(--space-4);
   background: var(--surface-inset);
-  border: 2px solid var(--border-hairline);
+  border: var(--border-width) solid var(--ink-300);
   border-radius: var(--radius-sm);
-  font-weight: 700;
+  font: var(--fw-bold) var(--size-body)/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-body);
 }
 
 .pointsTeaser {
@@ -353,7 +386,7 @@
   font-size: 30px;
   line-height: 1;
   letter-spacing: var(--track-display);
-  color: var(--teal-700);
+  color: var(--coral-700);
 }
 
 .teaserUnit {
@@ -393,6 +426,15 @@
   border: 2px solid var(--border-hairline);
   border-radius: var(--radius-sm);
   outline: none;
+  transition:
+    border-color 120ms var(--ease-standard),
+    box-shadow 120ms var(--ease-standard);
+}
+
+/* The cell being typed in: an ink edge with a soft sunset halo. */
+.otpCell:focus {
+  border-color: var(--ink-900);
+  box-shadow: 0 0 0 4px var(--orange-100);
 }
 
 .otpWrong {
@@ -423,8 +465,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px 22px;
-  background: var(--white);
-  border: 1px solid var(--border-hairline);
+  background: var(--surface-inset);
   border-radius: var(--radius-card);
 }
 
@@ -464,7 +505,7 @@
   justify-content: space-between;
   gap: 10px 16px;
   padding-top: 12px;
-  border-top: 1px solid var(--border-inset);
+  border-top: 1px solid var(--cream-300);
 }
 
 .headText {
@@ -474,11 +515,13 @@
   min-width: 0;
 }
 
+/* Verified: a success, so the sea's teal. */
 .verifiedLabel {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
   color: var(--teal-700);
@@ -494,42 +537,75 @@
   background: transparent;
   border: none;
   padding: 0;
-  color: var(--teal-700);
+  color: var(--ink-900);
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 13px;
   text-decoration: underline;
+  text-decoration-color: var(--coral-600);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
   cursor: pointer;
 }
 
-/* Done */
+.textButton:hover {
+  text-decoration-color: var(--ink-900);
+}
+
+/* Done: the cover as a ticket. Sunset gradient, ink words, cream logo and line art. */
 
 .codeCard {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 28px;
-  background: var(--teal-600);
-  color: var(--cream-100);
+  /* Room under the words for the line art: it is 428/1366 (31.3%) of the card's width tall. */
+  padding: 28px 28px calc(31.3% - 4px);
+  background: var(--gradient-sunset);
+  color: var(--text-on-brand);
   border-radius: var(--radius-card);
 }
 
-.codeLabel {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: var(--track-eyebrow);
-  color: rgba(255, 241, 223, .72);
+/* The cover's mountains and waves along the bottom, bleeding a little off the edge as on the cover. */
+.codeArt {
+  position: absolute;
+  z-index: -1;
+  inset-inline: 0;
+  bottom: -18px;
+}
+
+.codeHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.codeText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.codeLogo {
+  flex: none;
+  display: block;
 }
 
 .code {
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 52px;
+  font-size: clamp(44px, 9vw, 64px);
   line-height: 1;
+  letter-spacing: -.01em;
 }
 
 .doneTitle {
-  margin: 0;
+  margin: 4px 0 0;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(28px, 4.5vw, 40px);
@@ -543,7 +619,18 @@
   max-width: 42ch;
   font-size: 17px;
   line-height: 1.6;
-  color: rgba(255, 241, 223, .86);
+  color: var(--text-on-brand);
+}
+
+/* The receipt: an inset panel under a sunset bar, like the deck's story page. */
+.receipt {
+  overflow: hidden;
+  padding-top: 0;
+}
+
+.receiptBand {
+  margin: 0 -22px 12px;
+  width: auto;
 }
 
 .doneActions {
@@ -558,12 +645,18 @@
   gap: 9px;
   min-height: 44px;
   padding: 0 20px;
-  background: var(--teal-600);
+  background: var(--ink-900);
   color: var(--cream-100);
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: .1em;
+  transition: background 120ms var(--ease-standard);
+}
+
+.directions:hover {
+  background: var(--ink-700);
+  color: var(--cream-100);
 }

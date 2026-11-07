@@ -19,7 +19,7 @@ export function RolesAccordion({ t }: { t: JobsDictionary["roles"] }) {
         const expanded = state.open === index;
         const bodyId = `${baseId}-role-${index}`;
         return (
-          <div key={role.title} className={styles.role}>
+          <div key={role.title} className={cx(styles.role, expanded && styles.roleOpen)}>
             <button
               type="button"
               className={styles.toggle}

@@ -20,6 +20,15 @@
   align-items: flex-start;
 }
 
+/* Beside the form (two columns), the copy and the walk-in note stay in view while it is filled in.
+   Stacked, each grid row is as tall as its item, so nothing sticks. */
+@media (min-width: 700px) {
+  .copy {
+    position: sticky;
+    top: 96px;
+  }
+}
+
 .title {
   margin: 0;
   max-width: 20ch;
@@ -40,20 +49,23 @@
   color: var(--text-muted);
 }
 
-/* "Or just come by" box */
+/* "Or just come by" box: a sunset-tinted note beside the form. */
 .walkIn {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 20px 22px;
-  background: var(--sun-200);
+  margin-top: 6px;
+  padding: 22px 24px;
+  background: var(--orange-100);
+  color: var(--ink-900);
   border-radius: var(--radius-card);
 }
 
 .walkTitle {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 24px;
+  line-height: var(--lh-title);
   letter-spacing: var(--track-display);
   text-transform: uppercase;
   color: var(--ink-900);
@@ -66,13 +78,30 @@
   color: var(--ink-900);
 }
 
+/* Coral as text on orange-100 is 4.1:1, so the link is set large (19px bold: 3:1 applies). */
 .walkLink {
+  align-self: flex-start;
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  font-size: 15px;
+  gap: 4px 8px;
+  font-size: 19px;
   font-weight: 700;
-  color: var(--pine-800);
+  line-height: 1.3;
+  color: var(--coral-700);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+.walkLink:hover {
+  color: var(--ink-900);
+  text-decoration-line: underline;
+}
+
+.walkLink:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
 }
 
 .formColumn {

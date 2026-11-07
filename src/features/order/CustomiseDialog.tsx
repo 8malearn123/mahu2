@@ -16,6 +16,7 @@ export function CustomiseDialog({ model }: { model: OrderModel }) {
     <Dialog
       open={item !== null}
       title={item ? t.names[item.id] : ""}
+      closeLabel={t.close}
       onClose={close}
       footer={
         <>

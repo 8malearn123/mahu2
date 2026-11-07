@@ -45,11 +45,27 @@
 }
 
 .role {
+  position: relative;
   background: var(--white);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-1);
   overflow: hidden;
+  transition: box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+/* The open role: lifted, with the sunset bar along its top edge. */
+.roleOpen {
+  box-shadow: var(--shadow-2);
+}
+
+.roleOpen::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 5px;
+  background: var(--gradient-sunset-x);
 }
 
 .toggle {
@@ -64,6 +80,13 @@
   text-align: start;
   cursor: pointer;
   font-family: inherit;
+  color: inherit;
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: -4px;
+  border-radius: var(--radius-card);
 }
 
 .summary {
@@ -95,11 +118,17 @@
   align-items: center;
   min-height: 26px;
   padding: 0 12px;
-  border-radius: 999px;
-  background: var(--teal-050);
-  color: var(--teal-700);
+  border-radius: var(--radius-pill);
+  background: var(--cream-200);
+  color: var(--ink-700);
   font-size: 12px;
+  font-weight: var(--fw-medium);
   letter-spacing: .02em;
+}
+
+.tag:lang(ar) {
+  font-size: 13px;
+  letter-spacing: 0;
 }
 
 .payBlock {
@@ -112,9 +141,12 @@
 .pay {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 26px;
+  line-height: 1.1;
   letter-spacing: var(--track-display);
-  color: var(--teal-700);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--text-price);
 }
 
 .perMonth {
@@ -131,15 +163,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--surface-inset);
-  color: var(--teal-700);
+  color: var(--ink-900);
   transform: rotate(0deg);
-  transition: transform 200ms var(--ease-standard);
+  transition:
+    transform 200ms var(--ease-standard),
+    background var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
 }
 
-.chevronOpen {
+.toggle:hover .chevron {
+  background: var(--cream-300);
+}
+
+/* Open: the control turns ink, like the primary pills. */
+.chevronOpen,
+.toggle:hover .chevronOpen {
   transform: rotate(180deg);
+  background: var(--ink-900);
+  color: var(--cream-100);
 }
 
 /* Collapsed bodies carry the `hidden` attribute. */
@@ -177,7 +220,7 @@
 }
 
 .dash {
-  color: var(--teal-600);
+  color: var(--coral-700);
 }
 
 .applyRow {

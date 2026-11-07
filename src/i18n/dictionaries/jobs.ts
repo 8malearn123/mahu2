@@ -15,8 +15,8 @@ const en = {
       "Six minutes a car, a hundred hellos a shift. If you're quick and you love coffee, you belong here.",
     applyNow: "Apply now",
     seeRoles: "See the roles",
-    apronAlt: "Mahu apron",
-    apronLine: "Your apron is waiting",
+    cardAlt: "A Mahu coffee carrier pouring into a cup",
+    cardLine: "Your spot at the window is waiting",
   },
   life: {
     lifeTitle: "Fast work, faster team",
@@ -157,8 +157,8 @@ const ar: JobsDictionary = {
     heroBody: "ست دقائق لكل سيارة، ومئة ابتسامة في الشفت. إن كنت سريعاً وتحب القهوة، مكانك عندنا.",
     applyNow: "قدّم الآن",
     seeRoles: "شاهد الوظائف",
-    apronAlt: "مريول ماهو",
-    apronLine: "مريولك بانتظارك",
+    cardAlt: "حافظة قهوة ماهو تسكب في كوب",
+    cardLine: "مكانك عند الشباك بانتظارك",
   },
   life: {
     lifeTitle: "شغل سريع، وفريق أسرع",

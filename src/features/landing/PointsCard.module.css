@@ -1,27 +1,47 @@
+/* A membership card: cream stock, the sticker's horizon across the top, the sunset bar along the foot. */
 .card {
   width: 100%;
   max-width: 420px;
   background: var(--cream-100);
-  border: 2px solid var(--pine-800);
-  box-shadow: var(--shadow-2);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-3);
   transform: rotate(-1.5deg);
   overflow: hidden;
 }
 
+/* Teal over sunset, as on the round sticker: the landing page's one horizon moment. */
 .header {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 16px 20px;
-  background: var(--pine-800);
+  gap: 16px;
+  min-height: 156px;
+  padding: 20px 22px;
+  background: var(--gradient-horizon);
 }
 
+.logo {
+  flex: none;
+}
+
+/* Sits low in the strip, on the orange-to-coral end of the gradient, where ink text holds up. */
 .label {
+  align-self: flex-end;
+  max-width: 22ch;
   font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: end;
   text-transform: uppercase;
   letter-spacing: .16em;
-  color: var(--sun-200);
+  color: var(--text-on-brand);
+}
+
+.label:lang(ar) {
+  font-size: 13px;
+  letter-spacing: var(--track-eyebrow);
 }
 
 .body {
@@ -45,6 +65,10 @@
   color: var(--ink-500);
 }
 
+.balanceLabel:lang(ar) {
+  font-size: 14px;
+}
+
 .rule {
   font-family: var(--font-display);
   font-weight: 700;
@@ -52,7 +76,7 @@
   line-height: 1;
   letter-spacing: var(--track-display);
   text-transform: uppercase;
-  color: var(--teal-600);
+  color: var(--coral-700);
 }
 
 .pointsRow {
@@ -67,7 +91,7 @@
   font-size: 72px;
   line-height: .9;
   letter-spacing: var(--track-display);
-  color: var(--pine-800);
+  color: var(--ink-900);
 }
 
 .unit {
@@ -79,18 +103,28 @@
   color: var(--ink-700);
 }
 
+.unit:lang(ar) {
+  font-size: 15px;
+  letter-spacing: 0;
+}
+
 .bar {
-  height: 14px;
-  background: var(--cream-200);
-  border: 2px solid var(--pine-800);
+  height: 12px;
+  background: var(--cream-300);
+  border-radius: var(--radius-pill);
   overflow: hidden;
 }
 
-/* Width is set inline: 0% until the card scrolls into view, then the balance. */
+/* Width is set inline: 0% until the card scrolls into view, then the balance. Orange at the start. */
 .barFill {
   height: 100%;
-  background: var(--teal-600);
+  border-radius: inherit;
+  background: var(--gradient-sunset-x);
   transition: width 600ms var(--ease-standard);
+}
+
+.barFill:dir(rtl) {
+  background: linear-gradient(270deg, var(--orange-500) 0%, var(--coral-500) 100%);
 }
 
 .toGo {
@@ -99,10 +133,10 @@
   color: var(--ink-700);
 }
 
+/* A perforation, as on a tear-off card. */
 .divider {
   height: 0;
-  border-top: 2px dashed var(--pine-800);
-  opacity: .45;
+  border-top: 2px dashed var(--cream-300);
 }
 
 .footer {
@@ -119,5 +153,5 @@
   line-height: 1.15;
   letter-spacing: var(--track-display);
   text-transform: uppercase;
-  color: var(--pine-800);
+  color: var(--ink-900);
 }

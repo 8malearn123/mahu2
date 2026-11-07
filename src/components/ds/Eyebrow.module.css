@@ -1,0 +1,32 @@
+/* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
+@layer base, components;
+
+@layer components {
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .6em;
+    margin: 0;
+    color: var(--eyebrow-fg);
+    font: var(--fw-bold) var(--size-body-s)/1.3 var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: var(--track-eyebrow);
+  }
+
+  .eyebrow:lang(ar) {
+    font-size: var(--size-body);
+    font-weight: var(--fw-medium);
+  }
+
+  .dot {
+    flex: none;
+    width: .5em;
+    height: .5em;
+    border-radius: 50%;
+    background: var(--eyebrow-dot);
+  }
+
+  .coral { --eyebrow-fg: var(--coral-700); --eyebrow-dot: var(--gradient-sunset-x); }
+  .ink { --eyebrow-fg: var(--ink-900); --eyebrow-dot: var(--ink-900); }
+  .cream { --eyebrow-fg: var(--cream-100); --eyebrow-dot: var(--gradient-sunset-x); }
+}

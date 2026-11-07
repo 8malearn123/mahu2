@@ -14,9 +14,9 @@ type Featured = {
 
 /** The three drinks featured in the menu section, in display order. Copy lives in the dictionary. */
 export const FEATURED: readonly Featured[] = [
-  { id: "mahu-latte", slot: "feat-mahu-latte", price: 18, badgeTone: "teal" },
-  { id: "orange", slot: "feat-orange-coffee", price: 21, badgeTone: "coral" },
-  { id: "cold-brew", slot: "feat-cold-brew", price: 17, badgeTone: "sand" },
+  { id: "mahu-latte", slot: "feat-mahu-latte", price: 18, badgeTone: "solid" },
+  { id: "orange", slot: "feat-orange-coffee", price: 21, badgeTone: "sunset" },
+  { id: "cold-brew", slot: "feat-cold-brew", price: 17, badgeTone: "coral" },
 ];
 
 /** This week's limited drop: the orange coffee. */

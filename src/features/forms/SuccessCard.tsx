@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Landscape } from "@/components/ds";
 import { SuccessIcon } from "@/components/icons";
 import { cx } from "@/lib/cx";
 import styles from "./forms.module.css";
@@ -17,7 +18,10 @@ type SuccessCardProps = {
   children?: ReactNode;
 };
 
-/** The teal confirmation that replaces a form once it is sent. */
+/**
+ * The confirmation that replaces a form once it is sent: an ink card under the sunset bar, with the
+ * cover's line art faint in the corner. Children sit on ink (use the `onBrand` button, cream links).
+ */
 export function SuccessCard({
   title,
   body,
@@ -30,6 +34,7 @@ export function SuccessCard({
 }: SuccessCardProps) {
   return (
     <div className={styles.success}>
+      <Landscape crop="peaks" color="var(--ink-700)" fit="contain" className={styles.successArt} />
       <span className={styles.successIcon}>
         <SuccessIcon size={26} />
       </span>

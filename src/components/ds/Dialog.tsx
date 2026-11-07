@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, type ReactNode } from "react";
+import { CloseIcon } from "@/components/icons";
 import { cx } from "@/lib/cx";
 import { SceneBand } from "./SceneBand";
 import styles from "./Dialog.module.css";
@@ -13,6 +14,8 @@ type DialogProps = {
   children?: ReactNode;
   /** Max panel width in px. */
   width?: number;
+  /** Localised name for a round close button beside the title; without it the dialog shows none. */
+  closeLabel?: string;
   /** Applied to the panel. */
   className?: string;
 };
@@ -21,7 +24,7 @@ type DialogProps = {
  * Modal dialog from the Mahu design system, on a native <dialog>: Escape and a click on the
  * scrim close it, focus stays inside, and it sits above every fixed or sticky element.
  */
-export function Dialog({ open, onClose, title, footer, children, width = 460, className }: DialogProps) {
+export function Dialog({ open, onClose, title, footer, children, width = 460, closeLabel, className }: DialogProps) {
   const ref = useRef<HTMLDialogElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
@@ -50,10 +53,19 @@ export function Dialog({ open, onClose, title, footer, children, width = 460, cl
         <div ref={panelRef} tabIndex={-1} className={cx(styles.panel, className)} style={{ maxWidth: width }}>
           <SceneBand scene="sunset" height={8} />
           <div className={styles.body}>
-            {title && (
-              <h2 id={titleId} className={styles.title}>
-                {title}
-              </h2>
+            {(title || closeLabel) && (
+              <div className={cx(styles.header, title && styles.headerRule)}>
+                {title && (
+                  <h2 id={titleId} className={styles.title}>
+                    {title}
+                  </h2>
+                )}
+                {closeLabel && (
+                  <button type="button" className={styles.close} aria-label={closeLabel} onClick={onClose}>
+                    <CloseIcon size={20} />
+                  </button>
+                )}
+              </div>
             )}
             <div className={styles.content}>{children}</div>
             {footer && <div className={styles.footer}>{footer}</div>}

@@ -1,4 +1,5 @@
 import { useId, type ComponentProps, type ReactNode } from "react";
+import { ChevronDownIcon } from "@/components/icons";
 import { cx } from "@/lib/cx";
 import field from "./Field.module.css";
 import styles from "./Select.module.css";
@@ -26,19 +27,22 @@ export function Select({ label, hint, error, options, className, id, ...rest }: 
           {label}
         </label>
       )}
-      <select
-        {...rest}
-        id={selectId}
-        aria-invalid={error ? true : undefined}
-        aria-describedby={message ? messageId : undefined}
-        className={cx(styles.select, error && styles.invalid)}
-      >
-        {options.map((o) => (
-          <option key={o.value} value={o.value}>
-            {o.label}
-          </option>
-        ))}
-      </select>
+      <div className={styles.frame}>
+        <select
+          {...rest}
+          id={selectId}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={message ? messageId : undefined}
+          className={cx(field.control, styles.select, error && field.controlInvalid)}
+        >
+          {options.map((o) => (
+            <option key={o.value} value={o.value}>
+              {o.label}
+            </option>
+          ))}
+        </select>
+        <ChevronDownIcon size={18} className={styles.chevron} />
+      </div>
       {message && (
         <span id={messageId} className={cx(field.message, error && field.messageError)}>
           {message}

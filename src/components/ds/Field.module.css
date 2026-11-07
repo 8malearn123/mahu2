@@ -1,7 +1,10 @@
 /* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
 @layer base, components;
 
-/* Shared by Input, Select and Textarea. */
+/*
+ * Shared by Input, Select, Textarea and the order and form pieces built on them. `.control` is the
+ * field box itself: white on cream paper, a warm ink border, and the coral focus ring.
+ */
 @layer components {
   .wrap {
     display: flex;
@@ -9,19 +12,78 @@
     gap: var(--space-2);
   }
 
+  /* Small ink caps in English; Arabic has no capitals, so it gets a little more size instead. */
   .label {
-    font: var(--fw-bold) var(--size-caption)/1 var(--font-body);
+    font: var(--fw-bold) var(--size-caption)/1.2 var(--font-body);
     text-transform: uppercase;
-    letter-spacing: .14em;
-    color: var(--text-muted);
+    letter-spacing: .12em;
+    color: var(--text-body);
+  }
+
+  .label:lang(ar) {
+    font-size: var(--size-body-s);
+    letter-spacing: 0;
   }
 
   .message {
-    font: var(--fw-regular) var(--size-caption)/1.3 var(--font-body);
+    font: var(--fw-regular) var(--size-caption)/1.4 var(--font-body);
     color: var(--text-muted);
   }
 
+  .message:lang(ar) {
+    font-size: var(--size-body-s);
+  }
+
   .messageError {
+    font-weight: var(--fw-medium);
     color: var(--state-error);
+  }
+
+  .control {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 48px;
+    background: var(--white);
+    color: var(--text-body);
+    font: var(--fw-regular) var(--size-body)/1.4 var(--font-body);
+    border: var(--border-width) solid var(--ink-500);
+    border-radius: var(--radius-sm);
+    transition:
+      border-color var(--dur-fast) var(--ease-standard),
+      box-shadow var(--dur-fast) var(--ease-standard);
+  }
+
+  .control:hover {
+    border-color: var(--ink-900);
+  }
+
+  .control:focus-within {
+    border-color: var(--ink-900);
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* A second pixel of coral inside the border, so the error doesn't rest on colour alone. */
+  .controlInvalid,
+  .controlInvalid:hover,
+  .controlInvalid:focus-within {
+    border-color: var(--state-error);
+    box-shadow: inset 0 0 0 1px var(--state-error);
+  }
+
+  .controlDisabled,
+  .controlDisabled:hover,
+  .control:disabled,
+  .control:disabled:hover {
+    background: var(--cream-200);
+    border-color: var(--ink-300);
+    color: var(--ink-500);
+    cursor: not-allowed;
+  }
+
+  .control::placeholder,
+  .control ::placeholder {
+    color: var(--ink-500);
+    opacity: 1;
   }
 }

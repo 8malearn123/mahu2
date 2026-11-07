@@ -1,36 +1,14 @@
 /* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
 @layer base, components;
 
+/* The textarea's colours, border and focus ring come from Field.module.css (`.control`). */
 @layer components {
-  .wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .label {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: var(--track-eyebrow);
-    color: var(--text-muted);
-  }
-
-  .textarea {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px 14px;
-    background: var(--white);
-    border: 2px solid var(--border-hairline);
-    border-radius: var(--radius-sm);
-    font-family: inherit;
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--text-body);
+  /* Element + class so the line height wins over `.control`'s font shorthand whatever the chunk order. */
+  textarea.textarea {
+    display: block;
+    margin: 0;
+    padding: var(--space-3) var(--space-4);
+    line-height: var(--lh-body);
     resize: vertical;
-  }
-
-  .hint {
-    font-size: 13px;
-    color: var(--text-muted);
   }
 }

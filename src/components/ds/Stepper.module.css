@@ -1,15 +1,16 @@
 /* Declared in every layered file: CSS chunks can load in any order, and the first declaration fixes it. */
 @layer base, components;
 
+/* An ink-outlined pill, like the secondary button. */
 @layer components {
   .stepper {
     display: inline-flex;
     align-items: center;
     gap: 2px;
     padding: 3px;
-    border: var(--border-width) solid var(--border-hairline);
+    border: var(--border-width) solid var(--ink-900);
     border-radius: var(--radius-pill);
-    background: var(--white);
+    background: transparent;
   }
 
   .button {
@@ -17,16 +18,35 @@
     height: 40px;
     display: grid;
     place-items: center;
+    margin: 0;
+    padding: 0;
     background: transparent;
     border: none;
     border-radius: var(--radius-pill);
-    color: var(--teal-600);
+    color: var(--ink-900);
     font: var(--fw-bold) 20px/1 var(--font-body);
     cursor: pointer;
+    transition:
+      background var(--dur-fast) var(--ease-standard),
+      color var(--dur-fast) var(--ease-standard);
+  }
+
+  .button:hover:not(:disabled) {
+    background: var(--ink-900);
+    color: var(--cream-100);
+  }
+
+  .button:active:not(:disabled) {
+    transform: scale(var(--press-scale));
+  }
+
+  .button:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: -2px;
   }
 
   .button:disabled {
-    color: var(--text-subtle);
+    color: var(--ink-300);
     cursor: not-allowed;
   }
 
@@ -34,6 +54,7 @@
     min-width: 28px;
     text-align: center;
     font: var(--fw-bold) var(--size-body)/1 var(--font-body);
+    font-variant-numeric: tabular-nums;
     color: var(--text-body);
   }
 }

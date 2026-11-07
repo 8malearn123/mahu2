@@ -2,7 +2,10 @@
 @layer base, components;
 
 @layer components {
-  /* The <dialog> itself is a transparent full-screen layer; clicks on it (outside the panel) close. */
+  /*
+   * The <dialog> itself is a full-screen layer; clicks on it (outside the panel) close. It paints the
+   * scrim itself rather than ::backdrop, which older engines don't let read custom properties.
+   */
   .dialog {
     position: fixed;
     inset: 0;
@@ -14,27 +17,30 @@
     margin: 0;
     padding: var(--space-5);
     border: none;
-    background: transparent;
+    background: var(--overlay-scrim);
     color: inherit;
     overflow: auto;
+    overscroll-behavior: contain;
   }
 
   .dialog[open] {
     display: grid;
+    animation: dialogScrimIn var(--dur-base) var(--ease-standard) both;
   }
 
   .dialog::backdrop {
-    /* Literal value: older engines don't pass custom properties into ::backdrop. */
-    background: rgba(18, 48, 51, .5);
+    background: transparent;
   }
 
+  /* Cream paper with the sunset bar across its top (the SceneBand). */
   .panel {
     width: 100%;
     margin: auto;
-    background: var(--white);
+    background: var(--cream-100);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-3);
     overflow: hidden;
+    animation: dialogPanelIn var(--dur-slow) var(--ease-out) both;
   }
 
   .panel:focus {
@@ -48,12 +54,63 @@
     gap: var(--space-4);
   }
 
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .headerRule {
+    padding-bottom: var(--space-4);
+    border-bottom: var(--border-width) solid var(--cream-300);
+  }
+
   .title {
+    flex: 1;
+    min-width: 0;
     margin: 0;
     font: var(--fw-bold) var(--size-display-s)/var(--lh-display-s) var(--font-display);
     text-transform: uppercase;
     letter-spacing: var(--track-display);
     color: var(--text-body);
+  }
+
+  .title:lang(ar) {
+    line-height: var(--lh-title);
+  }
+
+  /* Round ink button, cream cross. */
+  .close {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    margin-inline-start: auto;
+    padding: 0;
+    background: var(--ink-900);
+    color: var(--cream-100);
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition:
+      background var(--dur-fast) var(--ease-standard),
+      transform var(--dur-fast) var(--ease-standard);
+  }
+
+  .close:hover {
+    background: var(--ink-700);
+  }
+
+  .close:active {
+    transform: scale(var(--press-scale));
+  }
+
+  .close:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
   }
 
   .content {
@@ -66,5 +123,29 @@
     gap: var(--space-3);
     justify-content: flex-end;
     margin-top: var(--space-2);
+  }
+
+  /* On a phone, actions that don't fit side by side stack full width, the last (main) one on top. */
+  @media (max-width: 520px) {
+    .footer {
+      flex-wrap: wrap-reverse;
+    }
+
+    .footer > * {
+      flex: 1 1 auto;
+    }
+  }
+
+  @keyframes dialogScrimIn {
+    from {
+      background-color: transparent;
+    }
+  }
+
+  @keyframes dialogPanelIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
   }
 }

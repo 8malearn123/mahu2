@@ -8,13 +8,16 @@
   padding-bottom: 120px;
 }
 
-/* Header */
+/* Header: an ink bar like the site header (logo, links, step progress), then a paper strip for the pickup window. */
 
 .header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: var(--teal-600);
+}
+
+.inkBar {
+  background: var(--ink-900);
   color: var(--cream-100);
 }
 
@@ -31,72 +34,146 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  min-height: 36px;
   color: var(--cream-100);
   font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
+  transition: color 120ms var(--ease-standard);
+}
+
+.back:lang(ar) {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.back:hover {
+  color: var(--orange-500);
+}
+
+.back:focus-visible,
+.logoLink:focus-visible,
+.langToggle:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 .logoLink {
   display: inline-flex;
   align-items: center;
+  margin-inline-start: 4px;
+  padding-inline-start: 20px;
+  border-inline-start: 1px solid var(--border-on-ink);
 }
 
-/* The design's language toggle was a bare <button>: this keeps its UA box (border-box, 1px 6px padding). */
+/* The other language's name, in that language's type, on a cream outline pill (as in the site header). */
 .langToggle {
   box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-inline-start: auto;
-  padding: 1px 6px;
+  min-height: 34px;
+  padding: 0 16px;
   background: transparent;
-  border: none;
+  border: 2px solid var(--cream-a50);
+  border-radius: var(--radius-pill);
   color: var(--cream-100);
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 12px;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: var(--track-eyebrow);
+  letter-spacing: .12em;
   cursor: pointer;
+  transition:
+    background 120ms var(--ease-standard),
+    color 120ms var(--ease-standard),
+    border-color 120ms var(--ease-standard);
 }
 
+.langToggle:lang(ar) {
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+.langToggle:hover {
+  background: var(--cream-100);
+  border-color: var(--cream-100);
+  color: var(--ink-900);
+}
+
+/*
+ * Step progress. Done and current segments share one sunset gradient laid across the whole row
+ * (each bar shows its own slice of it), so the progress reads as a single bar that warms as it fills.
+ */
 .steps {
+  --step-gap: 8px;
   max-width: 760px;
   margin: 0 auto;
   padding: 0 clamp(20px, 4vw, 32px) 14px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--step-gap);
 }
 
 .step {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
 .stepBar {
-  height: 3px;
-  background: rgba(255, 241, 223, .3);
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--cream-a20);
 }
 
 .stepLabel {
+  overflow: hidden;
   font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   letter-spacing: .16em;
-  color: rgba(255, 241, 223, .55);
+  color: var(--cream-a50);
+}
+
+.stepLabel:lang(ar) {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 .stepDone .stepBar {
-  background: var(--cream-100);
+  background: var(--gradient-sunset-x) no-repeat;
+  background-size: calc(var(--step-count) * 100% + (var(--step-count) - 1) * var(--step-gap)) 100%;
+  background-position: calc(var(--step-index) / (var(--step-count) - 1) * 100%) 0;
+}
+
+/* Right to left, the progress starts at the right: orange there, coral at the far end. */
+[dir="rtl"] .stepDone .stepBar {
+  background-image: linear-gradient(270deg, var(--orange-500) 0%, var(--coral-500) 100%);
+  background-position: calc((1 - var(--step-index) / (var(--step-count) - 1)) * 100%) 0;
 }
 
 .stepDone .stepLabel {
+  color: var(--cream-a86);
+}
+
+.stepCurrent .stepLabel {
   color: var(--cream-100);
 }
 
+/* Pickup window: a paper strip under the ink bar. */
+
 .branchStrip {
-  background: var(--pine-800);
+  background: var(--cream-200);
+  border-bottom: 1px solid var(--cream-300);
 }
 
 .branchRow {
@@ -110,7 +187,7 @@
 
 .pin {
   flex: 0 0 auto;
-  color: var(--sun-200);
+  color: var(--coral-600);
 }
 
 .branchText {
@@ -122,9 +199,15 @@
 
 .pickupAt {
   font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
-  color: var(--sun-200);
+  color: var(--ink-500);
+}
+
+.pickupAt:lang(ar) {
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .branchNames {
@@ -141,13 +224,13 @@
   line-height: 1.1;
   letter-spacing: var(--track-display);
   text-transform: uppercase;
-  color: var(--cream-100);
+  color: var(--ink-900);
 }
 
 .branchArea {
   font-size: 13px;
   line-height: 1.4;
-  color: rgba(255, 241, 223, .82);
+  color: var(--ink-500);
 }
 
 .changeBranch {
@@ -156,8 +239,8 @@
   min-height: 38px;
   padding: 0 18px;
   background: transparent;
-  border: 2px solid rgba(255, 241, 223, .5);
-  color: var(--cream-100);
+  border: 2px solid var(--ink-900);
+  color: var(--ink-900);
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-weight: 700;
@@ -165,6 +248,23 @@
   text-transform: uppercase;
   letter-spacing: var(--track-eyebrow);
   cursor: pointer;
+  transition:
+    background 120ms var(--ease-standard),
+    color 120ms var(--ease-standard);
+}
+
+.changeBranch:lang(ar) {
+  font-size: 14px;
+}
+
+.changeBranch:hover {
+  background: var(--ink-900);
+  color: var(--cream-100);
+}
+
+.changeBranch:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 /* Main column */
@@ -215,8 +315,31 @@
 }
 
 .barNudge {
+  background: var(--orange-100);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.barNudgeText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 7px clamp(20px, 4vw, 32px);
   font-size: 13px;
-  color: var(--teal-600);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--orange-800);
+}
+
+/* A sunset dot, as on the eyebrows. */
+.barNudgeText::before {
+  content: "";
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gradient-sunset-x);
 }
 
 .barTotal {

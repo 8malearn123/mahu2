@@ -38,9 +38,17 @@
   .button:disabled {
     background: var(--ink-100);
     border-color: transparent;
+    color: var(--ink-500);
     cursor: not-allowed;
-    opacity: .7;
+    opacity: .8;
     transform: none;
+  }
+
+  /* An ink ring around a cream gap: it reads on cream, on the gradient and on ink. */
+  .button:focus-visible {
+    outline: 2px solid var(--ink-900);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--cream-100);
   }
 
   .block {
@@ -48,46 +56,64 @@
     width: 100%;
   }
 
+  /* Ink pill: the default call to action on cream, on the gradient and on photos. */
   .primary {
-    --btn-bg: var(--teal-600);
-    --btn-bg-hover: var(--teal-700);
+    --btn-bg: var(--ink-900);
+    --btn-bg-hover: var(--ink-700);
     --btn-fg: var(--cream-100);
     --btn-border: transparent;
   }
 
+  /* The sunset gradient, ink text: the one loudest action on a cream or ink surface. */
+  .brand {
+    --btn-bg: var(--gradient-sunset-x);
+    --btn-bg-hover: linear-gradient(90deg, var(--orange-600), var(--coral-600));
+    --btn-fg: var(--ink-900);
+    --btn-border: transparent;
+  }
+
   .accent {
-    --btn-bg: var(--sandy-brown-500);
-    --btn-bg-hover: var(--sandy-brown-600);
+    --btn-bg: var(--orange-500);
+    --btn-bg-hover: var(--orange-600);
     --btn-fg: var(--ink-900);
     --btn-border: transparent;
   }
 
   .hot {
-    --btn-bg: var(--fire-opal-500);
-    --btn-bg-hover: var(--fire-opal-600);
-    --btn-fg: var(--cream-100);
+    --btn-bg: var(--coral-500);
+    --btn-bg-hover: var(--coral-600);
+    --btn-fg: var(--ink-900);
     --btn-border: transparent;
   }
 
   .secondary {
     --btn-bg: transparent;
-    --btn-bg-hover: var(--teal-050);
-    --btn-fg: var(--teal-600);
-    --btn-border: var(--teal-600);
+    --btn-bg-hover: rgba(13, 13, 13, .06);
+    --btn-fg: var(--ink-900);
+    --btn-border: var(--ink-900);
   }
 
   .ghost {
     --btn-bg: transparent;
-    --btn-bg-hover: var(--teal-050);
-    --btn-fg: var(--teal-600);
+    --btn-bg-hover: rgba(13, 13, 13, .06);
+    --btn-fg: var(--ink-900);
     --btn-border: transparent;
   }
 
+  /* Cream pill for ink sections and dark photos. */
   .onBrand {
     --btn-bg: var(--cream-100);
     --btn-bg-hover: var(--white);
-    --btn-fg: var(--teal-600);
+    --btn-fg: var(--ink-900);
     --btn-border: transparent;
+  }
+
+  /* Cream outline for ink sections and dark photos. */
+  .onBrandOutline {
+    --btn-bg: transparent;
+    --btn-bg-hover: var(--cream-a20);
+    --btn-fg: var(--cream-100);
+    --btn-border: var(--cream-100);
   }
 
   .sm {

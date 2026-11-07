@@ -6,17 +6,24 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+    min-width: 0;
     margin: 0;
     padding: 0;
     border: none;
   }
 
+  /* Matches the field labels (Field.module.css). */
   .legend {
     padding: 0;
-    font: var(--fw-bold) var(--size-caption)/1 var(--font-body);
+    font: var(--fw-bold) var(--size-caption)/1.2 var(--font-body);
     text-transform: uppercase;
-    letter-spacing: .14em;
-    color: var(--text-muted);
+    letter-spacing: .12em;
+    color: var(--text-body);
+  }
+
+  .legend:lang(ar) {
+    font-size: var(--size-body-s);
+    letter-spacing: 0;
   }
 
   .options {
@@ -44,22 +51,33 @@
     width: 22px;
     height: 22px;
     flex: 0 0 auto;
+    box-sizing: border-box;
     display: grid;
     place-items: center;
     background: var(--white);
-    border: var(--border-width-strong) solid var(--ink-300);
+    border: var(--border-width-strong) solid var(--ink-500);
     border-radius: var(--radius-pill);
+    transition:
+      background var(--dur-fast) var(--ease-standard),
+      border-color var(--dur-fast) var(--ease-standard);
   }
 
-  .ringOn {
-    border-color: var(--teal-600);
+  .option:hover .ring {
+    border-color: var(--ink-900);
+  }
+
+  /* Selected: an ink disc with a cream centre. */
+  .ringOn,
+  .option:hover .ringOn {
+    background: var(--ink-900);
+    border-color: var(--ink-900);
   }
 
   .dot {
-    width: 11px;
-    height: 11px;
+    width: 8px;
+    height: 8px;
     border-radius: var(--radius-pill);
-    background: var(--teal-600);
+    background: var(--cream-100);
   }
 
   /* The native radio stays in the DOM for keyboard and screen readers. */
@@ -76,8 +94,26 @@
     outline-offset: 2px;
   }
 
+  .option:has(.input:disabled) {
+    cursor: not-allowed;
+  }
+
+  .option:has(.input:disabled) .ring {
+    background: var(--ink-100);
+    border-color: var(--ink-100);
+  }
+
+  .option:has(.input:disabled) .ringOn {
+    background: var(--ink-300);
+    border-color: var(--ink-300);
+  }
+
   .text {
     font: var(--fw-regular) var(--size-body)/1.4 var(--font-body);
     color: var(--text-body);
+  }
+
+  .option:has(.input:disabled) .text {
+    color: var(--ink-500);
   }
 }

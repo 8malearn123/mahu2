@@ -34,23 +34,44 @@
     padding: 0;
     background: transparent;
     border: none;
-    color: var(--fire-opal-600);
+    color: var(--text-accent);
     font: var(--fw-bold) var(--size-caption)/1 var(--font-body);
     text-transform: uppercase;
     letter-spacing: .14em;
     cursor: pointer;
   }
 
+  .remove:lang(ar) {
+    font-size: var(--size-body-s);
+    letter-spacing: 0;
+  }
+
+  .remove:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .remove:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
   .price {
     min-width: 72px;
     text-align: end;
     font: var(--fw-bold) var(--size-body-l)/1 var(--font-body);
-    color: var(--text-body);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-price);
   }
 
   .currency {
     font-size: var(--size-caption);
     letter-spacing: .12em;
     color: var(--text-muted);
+  }
+
+  .currency:lang(ar) {
+    letter-spacing: 0;
   }
 }
